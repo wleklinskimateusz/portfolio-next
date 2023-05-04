@@ -2,6 +2,7 @@ import { Nav } from "@/components/Nav";
 import "./globals.css";
 import "@/types/react";
 import { Socials } from "@/components/Socials";
+import SwitchTheme from "@/components/SwitchTheme";
 
 export const metadata = {
   title: "Mateusz Wlekliński",
@@ -14,10 +15,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="cyberpunk">
-      <body className="flex h-screen flex-col bg-base-200">
+    <html lang="en">
+      <body
+        data-theme={"wireframe"}
+        className="flex h-screen flex-col bg-base-200"
+      >
         <Nav items={["Home", "Projects", "Contact"]} />
         <main className="flex-1">{children}</main>
+
         <footer className=" footer flex flex-col-reverse items-center justify-between bg-neutral p-4 text-neutral-content lg:flex-row">
           <div className="grid-flow-col items-center">
             <svg

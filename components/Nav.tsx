@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { FC } from "react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import SwitchTheme from "./SwitchTheme";
 
 const routeMap = {
   Home: "/",
@@ -17,6 +18,7 @@ export const Nav: FC<NavProps> = ({ items }) => {
   const pathname = usePathname();
   return (
     <nav className="tabs flex justify-center">
+      <SwitchTheme />
       {items.map((item) => {
         const path = routeMap[item];
         return (
