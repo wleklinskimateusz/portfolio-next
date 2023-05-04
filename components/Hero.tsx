@@ -21,7 +21,7 @@ export const Hero: FC<HeroProps> = ({
   return (
     <div className="hero h-full">
       <div className="flex flex-col items-center justify-around gap-5">
-        <div className="hero-content min-w-full flex-col lg:flex-row lg:gap-20">
+        <div className="hero-content min-w-full flex-col bg-base-200 lg:flex-row lg:gap-20">
           <NextImage
             image={image}
             className="rounded-lg bg-base-300 shadow-md"
