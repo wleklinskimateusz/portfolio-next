@@ -43,8 +43,8 @@ export const Socials = async () => {
       {socials.map(({ name, link }) => {
         const Icon = iconsMap[name];
         return (
-          <li>
-            <Link key={name} href={link}>
+          <li key={name}>
+            <Link href={link}>
               <Icon className=" h-10 w-10" />
             </Link>
           </li>
