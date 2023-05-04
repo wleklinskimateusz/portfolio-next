@@ -32,9 +32,6 @@ export const Hero: FC<HeroProps> = ({
             <button className="btn-primary btn w-44 ">Get Started</button>
           </div>
         </div>
-        <Suspense fallback={"...loading"}>
-          <Socials />
-        </Suspense>
       </div>
     </div>
   );

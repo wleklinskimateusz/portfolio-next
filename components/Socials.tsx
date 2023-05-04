@@ -39,13 +39,13 @@ export const Socials = async () => {
     },
   });
   return (
-    <ul className=" flex w-96 justify-around">
+    <ul className=" flex w-56 justify-around">
       {socials.map(({ name, link }) => {
         const Icon = iconsMap[name];
         return (
           <li key={name}>
             <Link href={link}>
-              <Icon className=" h-10 w-10" />
+              <Icon className="h-7 w-7" />
             </Link>
           </li>
         );
