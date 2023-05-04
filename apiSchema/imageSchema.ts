@@ -34,3 +34,5 @@ export const imageSchema = z.object({
     }),
   }),
 });
+
+export type StrapiImage = z.infer<typeof imageSchema>;

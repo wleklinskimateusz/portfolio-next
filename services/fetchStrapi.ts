@@ -35,7 +35,7 @@ const localeSchema = z.union([z.literal("en"), z.literal("pl")]);
 type Locale = z.infer<typeof localeSchema>;
 
 const additionalAttributes = z.object({
-  locale: localeSchema,
+  locale: localeSchema.optional(),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
 });

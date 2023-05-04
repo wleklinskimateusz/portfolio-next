@@ -1,4 +1,6 @@
+import { Nav } from "@/components/Nav";
 import "./globals.css";
+import "@/types/react";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="cupcake">
-      <body>{children}</body>
+    <html lang="en" data-theme="cyberpunk">
+      <body className="flex h-screen flex-col bg-base-200">
+        <Nav items={["Home", "Projects", "Contact"]} />
+        <main className="flex-1">{children}</main>
+      </body>
     </html>
   );
 }
