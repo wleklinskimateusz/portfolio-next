@@ -7,6 +7,7 @@ import SwitchTheme from "@/components/SwitchTheme";
 export const metadata = {
   title: "Mateusz Wlekliński",
   description: "Mateusz Wlekliński's personal website",
+  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({
