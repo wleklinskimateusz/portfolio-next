@@ -21,7 +21,7 @@ export default async function Home() {
     },
   });
   return (
-    <div className="h-full w-screen">
+    <div className="h-full w-screen py-10">
       <Hero
         image={picture}
         details={{

@@ -26,7 +26,7 @@ export const Nav: FC<NavProps> = ({ items }) => {
             key={item}
             href={path}
             className={clsx("tab-bordered tab", {
-              "tab-active": pathname === path,
+              "tab-active": isActive(pathname, path),
             })}
           >
             {item}
@@ -35,4 +35,9 @@ export const Nav: FC<NavProps> = ({ items }) => {
       })}
     </nav>
   );
+};
+
+const isActive = (current: string, path: string) => {
+  if (current === path && path === "/") return true;
+  return current.startsWith(path) && path !== "/";
 };

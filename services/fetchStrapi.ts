@@ -16,25 +16,51 @@ const urlBuilder = (path: string, query?: Record<string, unknown>) =>
 export async function fetchStrapi<T>({ path, schema, query }: FetchStrapi<T>) {
   if (!path.startsWith("/")) throw new Error("Path must start with /");
   const url = urlBuilder(path, query);
-  console.log("fetching", url);
   const res = await fetch(url);
   const data = await res.json();
   const result = z
     .object({
       data: z.object({
         id: z.number(),
-        attributes: z.unknown(),
+        attributes: z.record(z.string(), z.unknown()),
       }),
     })
     .parse(data);
-  const extractedData = result.data.attributes;
+  const extractedData = { ...result.data.attributes, id: result.data.id };
   return schema.and(additionalAttributes).parse(extractedData);
+}
+
+export async function fetchManyStrapi<T>({
+  path,
+  schema,
+  query,
+}: FetchStrapi<T>) {
+  if (!path.startsWith("/")) throw new Error("Path must start with /");
+  const url = urlBuilder(path, query);
+  const res = await fetch(url);
+  const data = await res.json();
+  const result = z
+    .object({
+      data: z.array(
+        z.object({
+          id: z.number(),
+          attributes: z.record(z.unknown()),
+        })
+      ),
+    })
+    .parse(data);
+  const extractedData = result.data.map(({ id, attributes }) => ({
+    ...attributes,
+    id,
+  }));
+  return z.array(schema.and(additionalAttributes)).parse(extractedData);
 }
 
 const localeSchema = z.union([z.literal("en"), z.literal("pl")]);
 type Locale = z.infer<typeof localeSchema>;
 
 const additionalAttributes = z.object({
+  id: z.number(),
   locale: localeSchema.optional(),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
