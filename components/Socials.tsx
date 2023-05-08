@@ -44,7 +44,10 @@ export const Socials = async () => {
         const Icon = iconsMap[name];
         return (
           <li key={name}>
-            <Link href={link}>
+            <Link
+              className="link transition-all duration-300 hover:link-primary"
+              href={link}
+            >
               <Icon className="h-7 w-7" />
             </Link>
           </li>

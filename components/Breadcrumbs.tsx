@@ -17,7 +17,7 @@ export const Breadcrumbs = () => {
   return (
     <div className="breadcrumbs ml-10 overflow-x-visible text-sm">
       <ul>
-        {links.map(({ name, path }) => (
+        {links.slice(0, -1).map(({ name, path }) => (
           <li key={path}>
             <Link href={path}>{name}</Link>
           </li>

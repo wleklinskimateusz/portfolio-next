@@ -3,6 +3,10 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { fetchManyStrapi } from "@/services/fetchStrapi";
 import { z } from "zod";
 
+export const metadata = {
+  title: "Projects - Mateusz Wlekliński",
+};
+
 export default async function Projects() {
   const projects = await fetchManyStrapi({
     path: "/api/projects",

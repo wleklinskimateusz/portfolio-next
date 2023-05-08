@@ -4,11 +4,25 @@ import { fetchManyStrapi, fetchStrapi } from "@/services/fetchStrapi";
 import Link from "next/link";
 import { z } from "zod";
 
-export default async function Project({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
+type Params = {
+  params: {
+    id: string;
+  };
+};
+
+export async function generateMetadata({ params }: Params) {
+  const { name } = await fetchStrapi({
+    path: `/api/projects/${params.id}`,
+    schema: z.object({
+      name: z.string(),
+    }),
+  });
+  return {
+    title: `Project ${name} - Mateusz Wlekliński`,
+  };
+}
+
+export default async function Project({ params: { id } }: Params) {
   const { name, description, repo, live, image } = await fetchStrapi({
     path: `/api/projects/${id}`,
     schema: z.object({
