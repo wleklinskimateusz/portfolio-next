@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.18.1",
     "@prisma/client": "^4.14.0",
     "@types/node": "18.16.1",
     "@types/react": "18.2.5",
