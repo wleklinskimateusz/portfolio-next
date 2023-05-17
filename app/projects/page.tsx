@@ -18,6 +18,7 @@ export default async function Projects() {
     query: {
       populate: ["image"],
     },
+    tag: "projects",
   });
   return (
     <div className=" prose m-auto h-full w-screen max-w-full p-10">

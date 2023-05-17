@@ -21,6 +21,7 @@ export default async function Contact() {
     query: {
       populate: "picture",
     },
+    tag: "profile",
   });
   return (
     <div className="prose m-auto h-full w-screen p-10">

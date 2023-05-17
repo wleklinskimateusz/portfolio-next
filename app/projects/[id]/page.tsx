@@ -1,5 +1,6 @@
 import { imageSchema } from "@/apiSchema/imageSchema";
 import { NextImage } from "@/components/NextImage";
+import { Form } from "@/components/admin/Form/Form";
 import { fetchManyStrapi, fetchStrapi } from "@/services/fetchStrapi";
 import Link from "next/link";
 import { z } from "zod";
@@ -16,6 +17,7 @@ export async function generateMetadata({ params }: Params) {
     schema: z.object({
       name: z.string(),
     }),
+    tag: "projects",
   });
   return {
     title: `Project ${name} - Mateusz Wlekliński`,
@@ -35,12 +37,14 @@ export default async function Project({ params: { id } }: Params) {
     query: {
       populate: ["image"],
     },
+    tag: `projects-${id}`,
   });
   return (
     <div className="prose m-auto h-full w-screen py-10">
       <h1>{name}</h1>
       <NextImage image={image} width={3000} className="rounded-lg shadow-xl" />
       <p>{description}</p>
+      <Form />
       {repo && live && (
         <div className="flex justify-around">
           {repo && (

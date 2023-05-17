@@ -19,6 +19,7 @@ export default async function Home() {
     query: {
       populate: ["picture", "bio"],
     },
+    tag: "profile",
   });
   return (
     <div className="h-full w-screen py-10">

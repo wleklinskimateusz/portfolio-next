@@ -6,6 +6,7 @@ type FetchStrapi<T> = {
   path: string;
   schema: ZodSchema<T>;
   query?: Record<string, unknown>;
+  tag?: string;
 };
 
 const urlBuilder = (path: string, query?: Record<string, unknown>) =>
@@ -13,10 +14,17 @@ const urlBuilder = (path: string, query?: Record<string, unknown>) =>
     ? `${serverEnv.STRAPI_URL}${path}?${qs.stringify(query)}`
     : `${serverEnv.STRAPI_URL}${path}`;
 
-export async function fetchStrapi<T>({ path, schema, query }: FetchStrapi<T>) {
+export async function fetchStrapi<T>({
+  path,
+  schema,
+  query,
+  tag,
+}: FetchStrapi<T>) {
   if (!path.startsWith("/")) throw new Error("Path must start with /");
   const url = urlBuilder(path, query);
-  const res = await fetch(url);
+  const res = await fetch(url, {
+    next: { tags: tag ? [tag, "strapi"] : ["strapi"] },
+  });
   const data = await res.json();
   const result = z
     .object({
@@ -34,10 +42,13 @@ export async function fetchManyStrapi<T>({
   path,
   schema,
   query,
+  tag,
 }: FetchStrapi<T>) {
   if (!path.startsWith("/")) throw new Error("Path must start with /");
   const url = urlBuilder(path, query);
-  const res = await fetch(url);
+  const res = await fetch(url, {
+    next: { tags: tag ? [tag, "strapi"] : ["strapi"] },
+  });
   const data = await res.json();
   const result = z
     .object({
