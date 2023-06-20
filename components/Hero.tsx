@@ -1,12 +1,9 @@
 import { StrapiImage } from "@/apiSchema/imageSchema";
-import React, { FC, Suspense } from "react";
-import { NextImage } from "./NextImage";
-import { FaFacebook } from "react-icons/fa";
-import Link from "next/link";
-import { Socials } from "./Socials";
+import React, { FC } from "react";
+import Image from "next/image";
 
 type HeroProps = {
-  image: StrapiImage;
+  image: string;
   details: {
     title: string;
     name: string;
@@ -22,8 +19,9 @@ export const Hero: FC<HeroProps> = ({
     <div className="hero h-full">
       <div className="flex flex-col items-center justify-around gap-5">
         <div className="hero-content min-w-full flex-col bg-base-200 lg:flex-row lg:gap-20">
-          <NextImage
-            image={image}
+          <Image
+            src={image}
+            alt="profile"
             className="rounded-lg bg-base-300 shadow-md"
           />
           <div className="prose flex flex-col items-center justify-center px-2  lg:items-start lg:px-0">

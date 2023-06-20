@@ -1,26 +1,10 @@
-import { fetchStrapi } from "@/services/fetchStrapi";
-import { z } from "zod";
-import Image from "next/image";
-import { imageSchema } from "@/apiSchema/imageSchema";
-import { getImageProps } from "@/services/getImageProps";
-import { NextImage } from "@/components/NextImage";
 import { Hero } from "@/components/Hero";
+import { prisma } from "@/services/prisma";
 
 export default async function Home() {
-  const { firstName, lastName, title, picture, bio } = await fetchStrapi({
-    path: "/api/profile",
-    schema: z.object({
-      firstName: z.string(),
-      lastName: z.string(),
-      title: z.string(),
-      picture: imageSchema,
-      bio: z.string(),
-    }),
-    query: {
-      populate: ["picture", "bio"],
-    },
-    tag: "profile",
-  });
+  const profile = await prisma.profile.findFirst();
+  if (!profile) throw new Error("No profile found");
+  const { firstName, lastName, bio, picture, title } = profile;
   return (
     <div className="h-full w-screen py-10">
       <Hero

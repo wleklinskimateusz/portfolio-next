@@ -6,3 +6,7 @@ ul,
 li {
   list-style: none;
 }
+
+form {
+  @apply flex flex-col space-y-4;
+}
