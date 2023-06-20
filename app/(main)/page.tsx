@@ -1,9 +1,7 @@
 import { Hero } from "@/components/Hero";
-import { prisma } from "@/services/prisma";
+import { profile } from "@/data/profile";
 
 export default async function Home() {
-  const profile = await prisma.profile.findFirst();
-  if (!profile) throw new Error("No profile found");
   const { firstName, lastName, bio, picture, title } = profile;
   return (
     <div className="h-full w-screen py-10">

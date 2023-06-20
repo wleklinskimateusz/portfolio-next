@@ -1,6 +1,4 @@
-import { fetchStrapi } from "@/services/fetchStrapi";
 import Link from "next/link";
-import { z } from "zod";
 import {
   FaFacebook,
   FaTwitter,
@@ -8,6 +6,8 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
+import { Social, socials } from "@/data/socials";
+import { IconType } from "react-icons";
 
 const iconsMap = {
   Facebook: FaFacebook,
@@ -15,29 +15,9 @@ const iconsMap = {
   Github: FaGithub,
   Instagram: FaInstagram,
   LinkedIn: FaLinkedin,
-};
+} satisfies Record<Social["name"], IconType>;
 
-export const Socials = async () => {
-  const { socials } = await fetchStrapi({
-    path: "/api/social",
-    schema: z.object({
-      socials: z.array(
-        z.object({
-          name: z.union([
-            z.literal("Github"),
-            z.literal("LinkedIn"),
-            z.literal("Facebook"),
-            z.literal("Instagram"),
-            z.literal("Twitter"),
-          ]),
-          link: z.string().url(),
-        })
-      ),
-    }),
-    query: {
-      populate: ["socials"],
-    },
-  });
+export const Socials = () => {
   return (
     <ul className=" flex w-56 justify-around">
       {socials.map(({ name, link }) => {

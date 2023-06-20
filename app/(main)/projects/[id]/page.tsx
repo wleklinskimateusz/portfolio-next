@@ -1,9 +1,7 @@
-import { imageSchema } from "@/apiSchema/imageSchema";
-import { NextImage } from "@/components/NextImage";
-import { Form } from "@/components/admin/Form/Form";
-import { fetchManyStrapi, fetchStrapi } from "@/services/fetchStrapi";
+import { projectIndexSchema, projects } from "@/data/projects";
 import Link from "next/link";
 import { z } from "zod";
+import Image from "next/image";
 
 type Params = {
   params: {
@@ -11,40 +9,30 @@ type Params = {
   };
 };
 
-export async function generateMetadata({ params }: Params) {
-  const { name } = await fetchStrapi({
-    path: `/api/projects/${params.id}`,
-    schema: z.object({
-      name: z.string(),
-    }),
-    tag: "projects",
-  });
+export function generateMetadata({ params: { id: rawId } }: Params) {
+  const result = projectIndexSchema.safeParse(Number.parseInt(rawId));
+  if (!result.success) {
+    return {};
+  }
+  const { name } = projects[result.data];
+
   return {
     title: `Project ${name} - Mateusz Wlekliński`,
   };
 }
 
-export default async function Project({ params: { id } }: Params) {
-  const { name, description, repo, live, image } = await fetchStrapi({
-    path: `/api/projects/${id}`,
-    schema: z.object({
-      name: z.string(),
-      description: z.string(),
-      image: imageSchema,
-      repo: z.string().nullable(),
-      live: z.string().nullable(),
-    }),
-    query: {
-      populate: ["image"],
-    },
-    tag: `projects-${id}`,
-  });
+export default function Project({ params: { id: rawId } }: Params) {
+  const result = projectIndexSchema.safeParse(Number.parseInt(rawId));
+  if (!result.success) {
+    return <h1>404</h1>;
+  }
+  const { name, image, description, repo, live } = projects[result.data];
+
   return (
     <div className="prose m-auto h-full w-screen py-10">
       <h1>{name}</h1>
-      <NextImage image={image} width={3000} className="rounded-lg shadow-xl" />
+      <Image src={image} width={3000} className="rounded-lg shadow-xl" alt="" />
       <p>{description}</p>
-      <Form />
       {repo && live && (
         <div className="flex justify-around">
           {repo && (

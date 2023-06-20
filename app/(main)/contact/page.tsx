@@ -1,28 +1,14 @@
-import { imageSchema } from "@/apiSchema/imageSchema";
-import { NextImage } from "@/components/NextImage";
+import Image from "next/image";
 import { Socials } from "@/components/Socials";
-import { fetchStrapi } from "@/services/fetchStrapi";
 import Link from "next/link";
-import { z } from "zod";
+import { profile } from "@/data/profile";
 
 export const metadata = {
   title: "Contact - Mateusz Wlekliński",
 };
 
-export default async function Contact() {
-  const { firstName, lastName, email, picture } = await fetchStrapi({
-    path: "/api/profile",
-    schema: z.object({
-      firstName: z.string(),
-      lastName: z.string(),
-      email: z.string().email(),
-      picture: imageSchema,
-    }),
-    query: {
-      populate: "picture",
-    },
-    tag: "profile",
-  });
+export default function Contact() {
+  const { firstName, lastName, email, picture } = profile;
   return (
     <div className="prose m-auto h-full w-screen p-10">
       <h1 className="text-center">Contact</h1>
@@ -30,7 +16,13 @@ export default async function Contact() {
         <div className="flex flex-col-reverse items-center justify-center lg:flex-col">
           <div className="avatar">
             <div className="h-48 w-48 rounded-full bg-primary">
-              <NextImage image={picture} className="m-0" />
+              <Image
+                src={picture}
+                alt="profile"
+                width={200}
+                height={200}
+                className="m-0"
+              />
             </div>
           </div>
           <p className="text-xl">

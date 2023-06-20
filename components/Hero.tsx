@@ -1,4 +1,3 @@
-import { StrapiImage } from "@/apiSchema/imageSchema";
 import React, { FC } from "react";
 import Image from "next/image";
 
@@ -22,6 +21,8 @@ export const Hero: FC<HeroProps> = ({
           <Image
             src={image}
             alt="profile"
+            width={200}
+            height={200}
             className="rounded-lg bg-base-300 shadow-md"
           />
           <div className="prose flex flex-col items-center justify-center px-2  lg:items-start lg:px-0">
