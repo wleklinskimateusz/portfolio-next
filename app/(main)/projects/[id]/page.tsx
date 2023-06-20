@@ -1,6 +1,5 @@
 import { projectIndexSchema, projects } from "@/data/projects";
 import Link from "next/link";
-import { z } from "zod";
 import Image from "next/image";
 
 type Params = {
@@ -31,7 +30,14 @@ export default function Project({ params: { id: rawId } }: Params) {
   return (
     <div className="prose m-auto h-full w-screen py-10">
       <h1>{name}</h1>
-      <Image src={image} width={3000} className="rounded-lg shadow-xl" alt="" />
+      {image && (
+        <Image
+          src={image}
+          width={3000}
+          className="rounded-lg shadow-xl"
+          alt=""
+        />
+      )}
       <p>{description}</p>
       {repo && live && (
         <div className="flex justify-around">

@@ -1,13 +1,12 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import { z } from "zod";
 
 import Link from "next/link";
 
 type ProjectCardProps = {
   title: string;
   description: string;
-  image: string;
+  image: string | null;
   id: number;
 };
 
@@ -21,7 +20,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
     <div className="prose-sm card w-96 flex-shrink-0 basis-80 bg-base-100 shadow-xl">
       {image && (
         <figure>
-          <Image src={image} width={800} alt="" />
+          <Image src={image} width={200} height={200} alt="" />
         </figure>
       )}
       <div className="card-body">
