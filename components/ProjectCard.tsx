@@ -17,10 +17,10 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   image,
 }) => {
   return (
-    <div className="prose-sm card w-96 flex-shrink-0 basis-80 bg-base-100 shadow-xl">
+    <div className="prose-sm card h-fit flex-shrink-0 basis-80 bg-base-100 shadow-xl">
       {image && (
-        <figure>
-          <Image src={image} width={200} height={200} alt="" />
+        <figure className="mb-0 mt-10">
+          <Image src={image} width={100} height={100} alt="" />
         </figure>
       )}
       <div className="card-body">

@@ -10,7 +10,7 @@ export default async function Projects() {
   return (
     <div className="prose m-auto h-full w-screen max-w-full p-10">
       <h1 className="text-center">Projects</h1>
-      <ul className="flex flex-wrap justify-center gap-10">
+      <ul className="flex flex-wrap items-center justify-center gap-10">
         {projects.map(({ name, image, description }, id) => (
           <ProjectCard
             key={id}

@@ -26,11 +26,13 @@ export const Hero: FC<HeroProps> = ({
             className="rounded-lg bg-base-300 shadow-md"
           />
           <div className="prose flex flex-col items-center justify-center px-2  lg:items-start lg:px-0">
-            <h1 className="text-center text-5xl font-bold lg:text-left">
-              {name}
-            </h1>
-            <h2 className="text-center text-3xl lg:text-left">{title}</h2>
-            <p className="py-6 text-center lg:text-left">{bio}</p>
+            <h1 className="text-center lg:text-left">{name}</h1>
+            <h2 className="mt-0 text-center  lg:text-left">{title}</h2>
+            {bio.split("\n").map((paragraph, id) => (
+              <p key={id} className="text-center lg:text-left">
+                {paragraph}
+              </p>
+            ))}
             <button className="btn-primary btn w-44 ">Get Started</button>
           </div>
         </div>
