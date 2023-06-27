@@ -7,5 +7,5 @@ I have a Bachelor's degree in Applied Physics, meaning I can't function without 
   `,
   title: "Software Engineer",
   email: "wleklinskimateusz05@gmail.com",
-  picture: "/avatar.png",
+  picture: "/images/avatar.png",
 };

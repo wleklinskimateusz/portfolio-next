@@ -26,6 +26,13 @@ export const projects = [
     repo: "https://github.com/wleklinskimateusz/portfolio-next",
     live: "/",
   },
+  {
+    name: "Game of Life",
+    description: "Conway's Game of Life built with Rust",
+    image: "/images/projects/game-of-life.png",
+    repo: "https://github.com/wleklinskimateusz/game_of_life",
+    live: null,
+  },
 ] as const satisfies readonly Project[];
 
 export type ProjectIndex = FindIndex<typeof projects>;

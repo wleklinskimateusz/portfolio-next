@@ -10,3 +10,7 @@ li {
 form {
   @apply flex flex-col space-y-4;
 }
+
+body {
+  @apply transition-colors duration-300 ease-in-out;
+}
