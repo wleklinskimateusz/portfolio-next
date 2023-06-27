@@ -39,7 +39,7 @@ export default function Contact() {
               {email}
             </Link>
           </div>
-          <div className="card p-5 shadow-lg">
+          <div className="card items-center p-5 shadow-lg">
             <p className="mb-0">Or find me on social media!</p>
             <Socials />
           </div>

@@ -28,31 +28,36 @@ export default function Project({ params: { id: rawId } }: Params) {
   const { name, image, description, repo, live } = projects[result.data];
 
   return (
-    <div className="prose m-auto h-full w-screen py-10">
-      <h1>{name}</h1>
+    <div className="card prose card-side m-auto flex gap-5 bg-base-100">
       {image && (
-        <Image
-          src={image}
-          width={3000}
-          className="rounded-lg shadow-xl"
-          alt=""
-        />
+        <figure className="m-0">
+          <Image
+            src={image}
+            width={125}
+            height={125 * 3}
+            className="rounded-lg shadow-xl"
+            alt=""
+          />
+        </figure>
       )}
-      <p>{description}</p>
-      {repo && live && (
-        <div className="flex justify-around">
-          {repo && (
-            <Link href={repo} className="btn-primary btn">
-              Check out the Code
-            </Link>
-          )}
-          {live && (
-            <Link href={live} className="btn-secondary btn">
-              Live Demo
-            </Link>
-          )}
-        </div>
-      )}
+      <div className="card-body">
+        <h1>{name}</h1>
+        <p>{description}</p>
+        {(repo || live) && (
+          <div className="card-actions justify-around">
+            {repo && (
+              <Link href={repo} className="btn-primary btn">
+                Check out the Code
+              </Link>
+            )}
+            {live && (
+              <Link href={live} className="btn-secondary btn">
+                Live Demo
+              </Link>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
