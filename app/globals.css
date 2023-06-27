@@ -11,6 +11,7 @@ form {
   @apply flex flex-col space-y-4;
 }
 
-body {
+body,
+div {
   @apply transition-colors duration-300 ease-in-out;
 }
