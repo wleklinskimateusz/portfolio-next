@@ -1,13 +1,12 @@
 import React, { FC } from "react";
-import { NextImage } from "./NextImage";
-import { z } from "zod";
-import { imageSchema } from "@/apiSchema/imageSchema";
+import Image from "next/image";
+
 import Link from "next/link";
 
 type ProjectCardProps = {
   title: string;
   description: string;
-  image: z.infer<typeof imageSchema>;
+  image: string | null;
   id: number;
 };
 
@@ -18,10 +17,10 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   image,
 }) => {
   return (
-    <div className="prose-sm card w-96 flex-shrink-0 basis-80 bg-base-100 shadow-xl">
+    <div className="prose-sm card h-fit flex-shrink-0 basis-80 bg-base-100 shadow-xl">
       {image && (
-        <figure>
-          <NextImage image={image} width={800} />
+        <figure className="mb-0 mt-10">
+          <Image src={image} width={100} height={100} alt="" />
         </figure>
       )}
       <div className="card-body">
