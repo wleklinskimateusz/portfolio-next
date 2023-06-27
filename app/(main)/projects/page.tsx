@@ -1,6 +1,5 @@
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
-import { getAttribute } from "@/services/getAttribute";
 
 export const metadata = {
   title: "Projects - Mateusz Wlekliński",
