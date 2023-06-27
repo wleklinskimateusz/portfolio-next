@@ -1,0 +1,70 @@
+import { blogs } from "@/data/blogs";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import urlMetadata from "url-metadata";
+import { z } from "zod";
+
+const Blogs = async () => {
+  return (
+    <div className="prose m-auto h-full w-screen max-w-full p-10">
+      <h1 className="text-center">My Blog Articles</h1>
+      <ul className="flex flex-wrap items-center justify-center gap-10">
+        {blogs.map((link) => (
+          <BlogCard key={link} link={link} />
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+const metadataSchema = z.object({
+  "og:title": z.string(),
+  description: z.string(),
+  "og:image": z.string().url().optional(),
+  jsonld: z.object({
+    datePublished: z.string(),
+    publisher: z
+      .object({
+        name: z.string(),
+        url: z.string().url(),
+        logo: z.object({
+          width: z.number(),
+          height: z.number(),
+          url: z.string().url(),
+        }),
+      })
+      .optional(),
+  }),
+});
+
+const BlogCard = async ({ link }: { link: string }) => {
+  const metadata = await urlMetadata(link);
+  const {
+    "og:title": title,
+    description,
+    "og:image": image,
+    jsonld: { datePublished, publisher },
+  } = metadataSchema.parse(metadata);
+
+  return (
+    <div key={title} className="prose-sm card glass flex max-w-sm shadow-lg">
+      {image && (
+        <figure>
+          <Image src={image} alt={title} width={1057} height={554} />
+        </figure>
+      )}
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
+        <p>{description}</p>
+        <div className="card-actions justify-end">
+          <Link className="btn-primary btn w-fit" href={link}>
+            Read me
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Blogs;

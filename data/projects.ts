@@ -12,36 +12,19 @@ type Project = {
 
 export const projects = [
   {
-    name: "Notes App",
-    description:
-      "A simple, yet powerful, tool to create and manage your notes.",
-    image: "/favicon.ico",
-    repo: null,
-    live: null,
+    name: "Pokedex",
+    description: "A pokedex app that allows to search and filter pokemons.",
+    image: "/images/projects/pokemons.png",
+    repo: "https://github.com/wleklinskimateusz/pokedex",
+    live: "https://wleklinskimateusz.github.io/pokedex/",
   },
   {
-    name: "Notes App",
+    name: "Portfolio",
     description:
-      "A simple, yet powerful, tool to create and manage your notes.",
-    image: null,
-    repo: null,
-    live: null,
-  },
-  {
-    name: "Notes App",
-    description:
-      "A simple, yet powerful, tool to create and manage your notes.",
-    image: null,
-    repo: null,
-    live: null,
-  },
-  {
-    name: "Notes App",
-    description:
-      "A simple, yet powerful, tool to create and manage your notes.",
-    image: null,
-    repo: null,
-    live: null,
+      "Portfolio website built with Next.js, Tailwind CSS and TypeScript.",
+    image: "/images/projects/portfolio.png",
+    repo: "https://github.com/wleklinskimateusz/portfolio-next",
+    live: "/",
   },
 ] as const satisfies readonly Project[];
 

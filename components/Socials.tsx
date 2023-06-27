@@ -19,7 +19,7 @@ const iconsMap = {
 
 export const Socials = () => {
   return (
-    <ul className="flex w-56 justify-around">
+    <ul className="flex w-56 justify-around rounded p-0">
       {socials.map(({ name, link }) => {
         const Icon = iconsMap[name];
         return (
