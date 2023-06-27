@@ -8,13 +8,13 @@ import SwitchTheme from "./SwitchTheme";
 const routeMap = {
   Home: "/",
   Projects: "/projects",
+  Blog: "/blogs",
   Contact: "/contact",
 };
-type NavProps = {
-  items: (keyof typeof routeMap)[];
-};
 
-export const Nav: FC<NavProps> = ({ items }) => {
+const items = Object.keys(routeMap) as (keyof typeof routeMap)[];
+
+export const Nav: FC = () => {
   const pathname = usePathname();
   return (
     <nav className="tabs flex justify-center">

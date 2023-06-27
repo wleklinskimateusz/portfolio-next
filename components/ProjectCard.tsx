@@ -17,7 +17,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   image,
 }) => {
   return (
-    <div className="prose-sm card h-fit flex-shrink-0 basis-80 bg-base-100 shadow-xl">
+    <div className="prose-sm card h-fit flex-shrink-0 basis-80 bg-primary text-primary-content shadow-xl">
       {image && (
         <figure className="mb-0 mt-10">
           <Image src={image} width={100} height={100} alt="" />
@@ -31,7 +31,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
             : description}
         </p>
         <div className="card-actions justify-end">
-          <Link className="btn-primary btn" href={`/projects/${id}`}>
+          <Link className="btn-secondary btn" href={`/projects/${id}`}>
             See more
           </Link>
         </div>
