@@ -7,11 +7,37 @@ li {
   list-style: none;
 }
 
-form {
-  @apply flex flex-col space-y-4;
-}
-
 body,
 div {
   @apply transition-colors duration-300 ease-in-out;
+}
+
+body {
+  @apply text-primary-900 dark:bg-black dark:text-primary-100 bg-white;
+}
+
+a {
+  @apply text-primary transition-colors duration-300 hover:text-primary-400 active:text-primary-200 focus:text-primary-400;
+}
+
+/* all focusable elements */
+*:focus {
+  @apply outline-primary-400;
+}
+
+h1 {
+  @apply text-3xl text-primary mb-5 font-playfair;
+}
+
+h2 {
+  @apply text-xl mb-4 font-playfair;
+}
+
+h3 {
+  @apply text-lg text-primary-800 dark:text-primary-200 mb-2;
+}
+
+p {
+  text-wrap: wrap;
+  word-wrap: break-word;
 }

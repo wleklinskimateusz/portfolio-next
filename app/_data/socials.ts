@@ -20,4 +20,8 @@ export const socials = [
     name: "Instagram",
     link: "https://www.instagram.com/m_wleklinski/",
   },
+  {
+    name: "Twitter",
+    link: "https://twitter.com/wleklinskim",
+  },
 ] as const satisfies readonly Social[];

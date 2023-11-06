@@ -1,4 +1,4 @@
-import { projectIndexSchema, projects } from "@/data/projects";
+import { projectIndexSchema, projects } from "@/app/_data/projects";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -28,23 +28,25 @@ export default function Project({ params: { id: rawId } }: Params) {
   const { name, image, description, repo, live } = projects[result.data];
 
   return (
-    <div className="card prose card-side m-auto flex gap-5 bg-base-100">
+    <div className="m-auto flex h-full justify-center gap-16 pt-16">
       {image && (
         <figure className="m-0">
           <Image
             src={image}
-            width={125}
-            height={125 * 3}
+            width={175}
+            height={175 * 3}
             className="rounded-lg shadow-xl"
             alt=""
           />
         </figure>
       )}
-      <div className="card-body">
-        <h1>{name}</h1>
-        <p>{description}</p>
+      <div className="flex flex-col justify-center gap-16">
+        <div>
+          <h1>{name}</h1>
+          <p>{description}</p>
+        </div>
         {(repo || live) && (
-          <div className="card-actions justify-around">
+          <div className="flex gap-3">
             {repo && (
               <Link href={repo} className="btn-primary btn">
                 Check out the Code

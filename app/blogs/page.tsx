@@ -1,4 +1,4 @@
-import { blogs } from "@/data/blogs";
+import { blogs } from "@/app/_data/blogs";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const Blogs = async () => {
   return (
-    <div className="prose m-auto h-full w-screen max-w-full p-10">
+    <div className="m-auto h-full w-screen max-w-full p-10">
       <h1 className="text-center">My Blog Articles</h1>
       <ul className="flex flex-wrap items-center justify-center gap-10">
         {blogs.map((link) => (
@@ -48,7 +48,7 @@ const BlogCard = async ({ link }: { link: string }) => {
   } = metadataSchema.parse(metadata);
 
   return (
-    <div key={title} className="prose-sm card glass flex max-w-sm shadow-lg">
+    <div key={title} className="card glass flex max-w-sm shadow-lg">
       {image && (
         <figure>
           <Image src={image} alt={title} width={1057} height={554} />

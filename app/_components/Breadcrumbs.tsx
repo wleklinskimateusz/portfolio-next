@@ -15,7 +15,7 @@ export const Breadcrumbs = () => {
   });
   if (paths.length < 2) return null;
   return (
-    <div className="breadcrumbs ml-10 overflow-x-visible text-sm">
+    <div className="ml-10 overflow-x-visible text-sm">
       <ul>
         {links.slice(0, -1).map(({ name, path }) => (
           <li key={path}>

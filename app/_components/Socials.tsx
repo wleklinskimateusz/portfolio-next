@@ -1,17 +1,12 @@
 import Link from "next/link";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-} from "react-icons/fa";
-import { Social, socials } from "@/data/socials";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Social, socials } from "@/app/_data/socials";
 import { IconType } from "react-icons";
+import { FaXTwitter } from "react-icons/fa6";
 
 const iconsMap = {
   Facebook: FaFacebook,
-  Twitter: FaTwitter,
+  Twitter: FaXTwitter,
   Github: FaGithub,
   Instagram: FaInstagram,
   LinkedIn: FaLinkedin,
@@ -24,10 +19,7 @@ export const Socials = () => {
         const Icon = iconsMap[name];
         return (
           <li key={name}>
-            <Link
-              className="link transition-all duration-300 hover:link-primary"
-              href={link}
-            >
+            <Link href={link}>
               <Icon className="h-7 w-7" />
             </Link>
           </li>

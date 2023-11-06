@@ -33,6 +33,28 @@ export const projects = [
     repo: "https://github.com/wleklinskimateusz/game_of_life",
     live: null,
   },
+  {
+    name: "Pokedex",
+    description: "A pokedex app that allows to search and filter pokemons.",
+    image: "/images/projects/pokemons.png",
+    repo: "https://github.com/wleklinskimateusz/pokedex",
+    live: "https://wleklinskimateusz.github.io/pokedex/",
+  },
+  {
+    name: "Portfolio",
+    description:
+      "Portfolio website built with Next.js, Tailwind CSS and TypeScript.",
+    image: "/images/projects/portfolio.png",
+    repo: "https://github.com/wleklinskimateusz/portfolio-next",
+    live: "/",
+  },
+  {
+    name: "Game of Life",
+    description: "Conway's Game of Life built with Rust",
+    image: "/images/projects/game-of-life.png",
+    repo: "https://github.com/wleklinskimateusz/game_of_life",
+    live: null,
+  },
 ] as const satisfies readonly Project[];
 
 export type ProjectIndex = FindIndex<typeof projects>;

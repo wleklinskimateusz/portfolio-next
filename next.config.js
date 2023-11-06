@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["miro.medium.com"],
-  },
-  experimental: {
-    appDir: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "miro.medium.com",
+      },
+    ],
   },
 };
 

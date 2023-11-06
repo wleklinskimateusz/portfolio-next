@@ -3,12 +3,11 @@ import Link from "next/link";
 import React, { FC } from "react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import SwitchTheme from "./SwitchTheme";
 
 const routeMap = {
   Home: "/",
-  Projects: "/projects",
-  Blog: "/blogs",
+  // Projects: "/projects",
+  // Blog: "/blogs",
   Contact: "/contact",
 };
 
@@ -17,16 +16,16 @@ const items = Object.keys(routeMap) as (keyof typeof routeMap)[];
 export const Nav: FC = () => {
   const pathname = usePathname();
   return (
-    <nav className="tabs flex justify-center">
-      <SwitchTheme />
+    <nav className="tabs fixed top-0 backdrop-blur left-0 right-0 flex justify-center">
       {items.map((item) => {
         const path = routeMap[item];
+        const active = isActive(pathname, path);
         return (
           <Link
             key={item}
             href={path}
-            className={clsx("tab-bordered tab", {
-              "tab-active": isActive(pathname, path),
+            className={clsx("px-2 py-1 m-2 rounded", {
+              "underline underline-offset-4": active,
             })}
           >
             {item}
