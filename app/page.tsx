@@ -21,7 +21,7 @@ export default async function Home() {
             Web Development & Programming Expertise
           </h2>
           <a
-            href=""
+            href="/contact"
             className="p-2 outline-primary hover:bg-primary-100 dark:hover:bg-primary-800 dark:hover:text-primary-100 hover:outline-none transition-colors duration-300 hover:text-primary-700 outline w-fit rounded m-2"
           >
             Connect With Me!
