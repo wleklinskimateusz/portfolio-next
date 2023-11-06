@@ -22,7 +22,7 @@ export default async function Home() {
           </h2>
           <a
             href="/contact"
-            className="p-2 outline-primary hover:bg-primary-100 dark:hover:bg-primary-800 dark:hover:text-primary-100 hover:outline-none transition-colors duration-300 hover:text-primary-700 outline w-fit rounded m-2"
+            className="p-2 text-info  outline-info hover:bg-info-100 dark:hover:bg-info-800 dark:hover:text-info-100 hover:outline-none transition-colors duration-300 hover:text-info-700 outline w-fit rounded m-2"
           >
             Connect With Me!
           </a>
@@ -33,7 +33,7 @@ export default async function Home() {
           alt="profile"
           width={300}
           height={300}
-          className="bg-primary rounded-full shadow-md"
+          className="bg-primary outline transition-all border-info duration-300 hover:outline-primary hover:outline-8 rounded-full shadow-md"
         />
       </section>
     </div>
