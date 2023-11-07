@@ -13,8 +13,28 @@ const playfairFont = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Mateusz Wlekliński",
-  description: "Mateusz Wlekliński's personal website",
+  title: "Mateusz Wlekliński - Web Developer",
+  description:
+    "Junior Frontend Developer with a passion for web development. Explore my projects and blog about coding and tech.",
+  keywords: [
+    "web development",
+    "coding",
+    "JavaScript",
+    "React.js",
+    "Typescript",
+    "Tailwind",
+    "front-end development",
+  ],
+  authors: {
+    name: "Mateusz Wlekliński",
+    url: "https://github.com/wleklinskimateusz",
+  },
+  robots: "index, follow",
+  openGraph: {
+    title: "Mateusz Wlekliński - Web Developer",
+    description:
+      "Junior Frontend Developer with a passion for web development. Explore my projects and blog about coding and tech.",
+  },
 };
 export const viewport = {
   width: "device-width",
