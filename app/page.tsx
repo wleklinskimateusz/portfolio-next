@@ -17,9 +17,9 @@ export default async function Home() {
           <h1 className="xl:text-8xl flex flex-col">
             <span>Building the Future,</span> <span>One Line at a Time</span>
           </h1>
-          <h2 className="xl:text-4xl">
+          <span className="xl:text-4xl">
             Web Development & Programming Expertise
-          </h2>
+          </span>
           <a
             href="/contact"
             className="p-2 text-info  outline-info hover:bg-info-100 dark:hover:bg-info-800 dark:hover:text-info-100 hover:outline-none transition-colors duration-300 hover:text-info-700 outline w-fit rounded m-2"
