@@ -5,13 +5,31 @@ import Link from "next/link";
 import urlMetadata from "url-metadata";
 import { z } from "zod";
 
+const getMetadata = async (link: string) => {
+  const metadata = await urlMetadata(link);
+  const {
+    "og:title": title,
+    description,
+    "og:image": image,
+    jsonld: { datePublished, publisher },
+  } = metadataSchema.parse(metadata);
+  return {
+    title,
+    description,
+    image,
+    datePublished,
+    publisher,
+  };
+};
+
 const Blogs = async () => {
+  const metadatas = await Promise.all(blogs.map(getMetadata));
   return (
     <div className="m-auto h-full w-screen max-w-full p-10">
       <h1 className="text-center">My Blog Articles</h1>
       <ul className="flex flex-wrap items-center justify-center gap-10">
-        {blogs.map((link) => (
-          <BlogCard key={link} link={link} />
+        {blogs.map((link, idx) => (
+          <BlogCard metadata={metadatas[idx]} key={link} link={link} />
         ))}
       </ul>
     </div>
@@ -38,15 +56,13 @@ const metadataSchema = z.object({
   }),
 });
 
-const BlogCard = async ({ link }: { link: string }) => {
-  const metadata = await urlMetadata(link);
-  const {
-    "og:title": title,
-    description,
-    "og:image": image,
-    jsonld: { datePublished, publisher },
-  } = metadataSchema.parse(metadata);
-
+const BlogCard = ({
+  link,
+  metadata: { title, description, image },
+}: {
+  link: string;
+  metadata: Awaited<ReturnType<typeof getMetadata>>;
+}) => {
   return (
     <div key={title} className="card glass flex max-w-sm shadow-lg">
       {image && (
