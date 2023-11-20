@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Technologies } from "./_components/Technologies";
 
 export const metadata = {
   title: "Mateusz Wlekliński",
@@ -9,16 +10,16 @@ export const metadata = {
 export default async function Home() {
   const a = "💡" satisfies string;
   return (
-    <div className="flex flex-col py-10">
+    <div className="flex max-w-7xl mx-auto flex-col py-10 gap-40">
       <section
         id="hero"
-        className="px-16 flex md:flex-row md:text-start text-center flex-col-reverse md:justify-around justify-center items-center gap-20 h-fit xl:h-[640px] 2xl:h-[720px]"
+        className="px-16 flex md:flex-row md:text-start text-center flex-col-reverse md:justify-around justify-center items-center gap-20"
       >
         <div className="max-w-4xl mb-20 flex flex-col xl:gap-10 gap-4 items-center md:items-start md:justify-around">
-          <h1 className="xl:text-8xl lg:text-6xl text-4xl flex flex-col">
+          <h1 className="2xl:text-8xl xl:text-7xl lg:text-6xl text-4xl flex flex-col">
             <span>Building the Future,</span> <span>One Line at a Time</span>
           </h1>
-          <span className="xl:text-4xl">
+          <span className="2xl:text-4xl xl:text-3xl lg:text-2xl  text-xl">
             Web Development & Programming Expertise
           </span>
           <a
@@ -60,6 +61,7 @@ export default async function Home() {
           />
         </div>
       </section>
+      <Technologies />
     </div>
   );
 }
@@ -73,7 +75,7 @@ type TraitBoxProps = {
 const TraitBox = ({ icon, title, description }: TraitBoxProps) => (
   <div className="flex  bg-primary-100/40 shadow-sm flex-col basis-96 gap-6 p-5 rounded">
     <h3 className="flex items-center gap-5">
-      <span className=" bg-white/70 rounded-full flex justify-center items-center  w-10 h-10 aspect-square">
+      <span className="bg-white rounded-full  shadow-sm flex justify-center items-center  w-10 h-10 aspect-square">
         {icon}
       </span>
       <span>{title}</span>

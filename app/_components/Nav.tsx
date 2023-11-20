@@ -16,7 +16,7 @@ const items = Object.keys(routeMap) as (keyof typeof routeMap)[];
 export const Nav: FC = () => {
   const pathname = usePathname();
   return (
-    <nav className="tabs fixed top-0 backdrop-blur left-0 right-0 flex justify-center">
+    <nav className="fixed top-0 backdrop-blur left-0 right-0 flex justify-center">
       {items.map((item) => {
         const path = routeMap[item];
         const active = isActive(pathname, path);
