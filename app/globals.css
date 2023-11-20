@@ -13,7 +13,7 @@ div {
 }
 
 body {
-  @apply text-primary-900 dark:bg-black dark:text-primary-100 bg-white;
+  @apply text-black dark:bg-black dark:text-white bg-white;
 }
 
 a {
@@ -26,7 +26,7 @@ a {
 }
 
 h1 {
-  @apply text-3xl text-primary mb-5 font-playfair;
+  @apply text-3xl mb-5 font-playfair;
 }
 
 h2 {
@@ -34,10 +34,22 @@ h2 {
 }
 
 h3 {
-  @apply text-lg text-primary-800 dark:text-primary-200 mb-2;
+  @apply text-lg  mb-2;
 }
 
 p {
   text-wrap: wrap;
   word-wrap: break-word;
+}
+
+.curly-arrow {
+  stroke-dasharray: 1000; /* Set a high value for the stroke-dasharray */
+  stroke-dashoffset: 1000; /* Set the initial value to the stroke-dasharray value */
+  animation: arrowAnimation 2s ease-in-out infinite;
+}
+
+@keyframes arrowAnimation {
+  to {
+    stroke-dashoffset: 0; /* Animate the stroke-dashoffset to 0, revealing the path */
+  }
 }

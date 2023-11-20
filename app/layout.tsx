@@ -1,6 +1,6 @@
 import { Nav } from "@/app/_components/Nav";
 import "./globals.css";
-import "@/types/react";
+import { Analytics } from "@vercel/analytics/react";
 import { Breadcrumbs } from "@/app/_components/Breadcrumbs";
 import { Socials } from "@/app/_components/Socials";
 import { Viewport } from "next";
@@ -51,6 +51,7 @@ export default function RootLayout({
       <body className={`flex min-h-screen flex-col ${playfairFont.variable}`}>
         <Nav />
         <Breadcrumbs />
+        <Analytics />
         <main className="flex-1 flex flex-col xl:w-[1440px] mt-12 lg:w-[1024px] mx-auto">
           {children}
         </main>
