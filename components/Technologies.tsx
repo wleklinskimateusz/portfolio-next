@@ -25,7 +25,7 @@ const technologiesEntries = Object.entries(technologies) as [
 
 export const Technologies = () => (
   <section className="flex max-w-4xl mx-auto flex-col items-center gap-10">
-    <h2 className="xl:text-5xl font-serif lg:text-4xl text-2xl">
+    <h2 className="xl:text-5xl font-serif lg:text-4xl text-3xl">
       Technologies I Love
     </h2>
     <ul className="flex flex-col px-4 justify-center gap-10 md:gap-10">

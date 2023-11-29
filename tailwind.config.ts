@@ -1,86 +1,76 @@
-import type { Config } from "tailwindcss";
-
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+	],
   theme: {
-    fontFamily: {
-      playfair: "var(--font-playfair)",
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
     },
     extend: {
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#00A98F",
-          100: "#C8FAE0",
-          200: "#93F6CB",
-          300: "#5BE5B6",
-          400: "#32CBA5",
-          500: "#00A98F",
-          600: "#009188",
-          700: "#007579",
-          800: "#005562",
-          900: "#003F51",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
-        success: {
-          DEFAULT: "#15BF4D",
-          100: "#D1FBCE",
-          200: "#A0F8A3",
-          300: "#6DEB7E",
-          400: "#48D869",
-          500: "#15BF4D",
-          600: "#0FA44F",
-          700: "#0A894D",
-          800: "#066E47",
-          900: "#045B43",
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
-        info: {
-          DEFAULT: "#1461E5",
-          100: "#CFE7FD",
-          200: "#A0CCFC",
-          300: "#6FABF7",
-          400: "#4B8EEF",
-          500: "#1461E5",
-          600: "#0E4AC4",
-          700: "#0A37A4",
-          800: "#062684",
-          900: "#031A6D",
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
-        warning: {
-          DEFAULT: "#FFD002",
-          100: "#FFF9CC",
-          200: "#FFF299",
-          300: "#FFE867",
-          400: "#FFDF41",
-          500: "#FFD002",
-          600: "#DBAE01",
-          700: "#B78E01",
-          800: "#937000",
-          900: "#7A5A00",
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
-        danger: {
-          DEFAULT: "#FF474D",
-          100: "#FDD5D1",
-          200: "#FBA5A5",
-          300: "#F57684",
-          400: "#EC5372",
-          500: "#E01F59",
-          600: "#C0165A",
-          700: "#A10F57",
-          800: "#810951",
-          900: "#6B054C",
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
       },
-      facebook: {
-        100: "#ffffff",
-        200: "#f7f7f7",
-        300: "#dfe3ee",
-        400: "#8b9dc3",
-        500: "#3b5998",
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [],
-} satisfies Config;
+  plugins: [require("tailwindcss-animate")],
+}

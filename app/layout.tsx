@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Socials } from "@/components/Socials";
 import { Viewport } from "next";
 import { Playfair_Display } from "next/font/google";
+import Script from "next/script";
 
 const playfairFont = Playfair_Display({
   weight: ["400", "700"],
@@ -55,7 +56,7 @@ export default function RootLayout({
         <main className="flex-1 flex flex-col xl:w-[1440px] mt-12 lg:w-[1024px] mx-auto">
           {children}
         </main>
-        <footer className="footer flex flex-col-reverse items-center justify-between bg-neutral p-4 text-neutral-content lg:flex-row">
+        <footer className="flex flex-col-reverse items-center justify-between bg-neutral p-4 text-neutral-content lg:flex-row">
           <div className="grid-flow-col items-center">
             <svg
               width="36"

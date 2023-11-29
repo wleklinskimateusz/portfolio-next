@@ -5,7 +5,11 @@ import { Input } from "./_components/Input";
 import { TextArea } from "./_components/TextArea";
 import nodemailer from "nodemailer";
 import { z } from "zod";
-import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
+import { sendMail } from "@/services/sendMail";
+import Script from "next/script";
+import { Button } from "@/components/ui/button";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
 
 export const metadata = {
   title: "Contact - Mateusz Wlekliński",
@@ -25,10 +29,36 @@ export default function Contact() {
           />
         </div>
 
-        <h1>Mateusz Wlekliński</h1>
-        <div className="items-center flex flex-col gap-5 justify-center p-5 shadow rounded">
-          <p className="mb-0">Connect with me on social media!</p>
-          <Socials />
+        <div className="text-center">
+          <h2 className="mb-0 font-serif text-4xl">Mateusz Wlekliński</h2>
+          <span>Fullstack developer</span>
+        </div>
+
+        <div className="items-center flex flex-col gap-5 justify-center p-5">
+          <ul className="flex flex-col justify-center items-center gap-4">
+            <li>
+              <Link
+                href="https://twitter.com/wleklinskim"
+                data-size="large"
+                data-show-count="false"
+              >
+                <Button variant="outline" className="flex gap-2">
+                  <FaXTwitter /> Follow me on Twitter
+                </Button>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://twitter.com/wleklinskim"
+                data-size="large"
+                data-show-count="false"
+              >
+                <Button variant="outline" className="flex gap-2">
+                  <FaLinkedin /> Check me out on LinkedIn
+                </Button>
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
       <div className="flex flex-col gap-5 text-center">
@@ -42,7 +72,7 @@ export default function Contact() {
             const messageForm = formData.get("message");
 
             const schema = z.object({
-              email: z.string().email(),
+              email: z.string(),
               name: z.string(),
               subject: z.string(),
               message: z.string(),
@@ -53,45 +83,51 @@ export default function Contact() {
               subject: subjectForm,
               message: messageForm,
             });
-
-            const apiKey = process.env.MAILERSEND_API;
-
-            if (!apiKey) {
-              throw new Error("No API key provided");
+            if (!process.env.EMAIL_SEND || !process.env.EMAIL_NAME) {
+              throw new Error("Email not set");
             }
-
-            const mailerSend = new MailerSend({ apiKey });
-
-            const sentFrom = new Sender(
-              "noreply@mateuszwleklinski.me",
-              "Mateusz Wlekliński"
-            );
-
-            const recipients = [new Recipient(email, name)];
-
-            const emailParams = new EmailParams()
-              .setFrom(sentFrom)
-              .setTo(recipients)
-              .setReplyTo(sentFrom)
-              .setSubject("This is a Subject")
-              .setHtml("<strong>This is the HTML content</strong>")
-              .setText("This is the text content");
-
-            try {
-              await mailerSend.email.send(emailParams);
-            } catch (error) {
-              throw new Error(JSON.stringify(error));
-            }
+            const admin = {
+              name: process.env.EMAIL_NAME,
+              email: process.env.EMAIL_SEND,
+            };
+            sendMail({
+              sender: admin,
+              to: [
+                {
+                  name,
+                  email,
+                },
+              ],
+              subject,
+              htmlContent: `
+              Thank you for contacting me! I will get back to you as soon as possible.
+              `,
+            });
+            sendMail({
+              sender: admin,
+              to: [
+                {
+                  name: admin.name,
+                  email: admin.email,
+                },
+              ],
+              subject: "NEW MESSAGE FROM PORTFOLIO",
+              htmlContent: `
+              <h1>From: ${name}</h1>
+              <h2>Email: ${email}</h2>
+              <p>${message}</p>
+              `,
+            });
           }}
           className="flex flex-col gap-4"
         >
           <div className="flex gap-2">
             <Input label="Name" name="name" />
-            <Input label="Email" name="email" type="email" />
+            <Input label="Email" name="email" required type="email" />
           </div>
           <Input label="Subject" name="subject" />
           <TextArea label="Message" name="message" />
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
       </div>
     </div>
