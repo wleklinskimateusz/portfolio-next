@@ -1,8 +1,8 @@
-import { Nav } from "@/app/_components/Nav";
+import { Nav } from "@/components/Nav";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import { Breadcrumbs } from "@/app/_components/Breadcrumbs";
-import { Socials } from "@/app/_components/Socials";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Socials } from "@/components/Socials";
 import { Viewport } from "next";
 import { Playfair_Display } from "next/font/google";
 

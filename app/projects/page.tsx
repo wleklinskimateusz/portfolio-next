@@ -1,5 +1,5 @@
 import { ProjectCard } from "@/app/projects/_components/ProjectCard";
-import { projects } from "@/app/_data/projects";
+import { projects } from "@/data/projects";
 
 export const metadata = {
   title: "Projects - Mateusz Wlekliński",

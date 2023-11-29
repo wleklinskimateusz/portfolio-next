@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Technologies } from "./_components/Technologies";
+import { Technologies } from "../components/Technologies";
 
 export const metadata = {
   title: "Mateusz Wlekliński",
@@ -16,7 +16,7 @@ export default async function Home() {
         className="px-16 flex md:flex-row md:text-start text-center flex-col-reverse md:justify-around justify-center items-center gap-20"
       >
         <div className="max-w-4xl mb-20 flex flex-col xl:gap-10 gap-4 items-center md:items-start md:justify-around">
-          <h1 className="2xl:text-8xl xl:text-7xl lg:text-6xl text-4xl flex flex-col">
+          <h1 className="2xl:text-8xl font-serif xl:text-7xl lg:text-6xl text-4xl flex flex-col">
             <span>Building the Future,</span> <span>One Line at a Time</span>
           </h1>
           <span className="2xl:text-4xl xl:text-3xl lg:text-2xl  text-xl">
@@ -40,7 +40,7 @@ export default async function Home() {
         />
       </section>
       <section className="flex flex-col items-center gap-10">
-        <h2 className="xl:text-5xl lg:text-4xl text-2xl">
+        <h2 className="xl:text-5xl font-serif lg:text-4xl text-2xl">
           Unveiling the Code Composer
         </h2>
         <div className="flex px-4 justify-center gap-4 md:gap-10">
