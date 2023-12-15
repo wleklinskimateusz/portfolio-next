@@ -2,54 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-ul,
-li {
-  list-style: none;
-}
-
-body,
-div {
-  @apply transition-colors duration-300 ease-in-out;
-}
-
-body {
-  @apply text-black dark:bg-black dark:text-white bg-white;
-}
-
-a {
-  @apply text-primary transition-colors duration-300 hover:text-primary-400 active:text-primary-200 focus:text-primary-400;
-}
-
-/* all focusable elements */
 *:focus {
-  @apply outline-primary-400;
+  @apply outline-primary;
 }
 
-h1 {
-  @apply text-3xl mb-5 font-playfair;
-}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.3rem;
+  }
 
-h2 {
-  @apply text-xl mb-4 font-playfair;
-}
-
-h3 {
-  @apply text-lg  mb-2;
-}
-
-p {
-  text-wrap: wrap;
-  word-wrap: break-word;
-}
-
-.curly-arrow {
-  stroke-dasharray: 1000; /* Set a high value for the stroke-dasharray */
-  stroke-dashoffset: 1000; /* Set the initial value to the stroke-dasharray value */
-  animation: arrowAnimation 2s ease-in-out infinite;
-}
-
-@keyframes arrowAnimation {
-  to {
-    stroke-dashoffset: 0; /* Animate the stroke-dashoffset to 0, revealing the path */
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
   }
 }

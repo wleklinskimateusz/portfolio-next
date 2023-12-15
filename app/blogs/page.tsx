@@ -1,4 +1,4 @@
-import { blogs } from "@/app/_data/blogs";
+import { blogs } from "@/data/blogs";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";

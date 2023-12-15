@@ -1,4 +1,4 @@
-import { projectIndexSchema, projects } from "@/app/_data/projects";
+import { projectIndexSchema, projects } from "@/data/projects";
 import Link from "next/link";
 import Image from "next/image";
 

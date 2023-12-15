@@ -1,42 +1,83 @@
-import Image from "next/image";
-import { Socials } from "@/app/_components/Socials";
-import Link from "next/link";
+import { Input } from "./_components/Input";
+import { TextArea } from "./_components/TextArea";
+import { z } from "zod";
+import { sendMail } from "@/services/sendMail";
+import { Button } from "@/components/ui/button";
 
 export const metadata = {
   title: "Contact - Mateusz Wlekliński",
 };
-
+// ADD error boundary
 export default function Contact() {
   return (
-    <div className="flex h-[720px] flex-col items-center justify-center gap-20 lg:flex-row">
-      <div className="flex gap-10 flex-col-reverse items-center justify-center lg:flex-col">
-        <div className="h-48 w-48 rounded-full bg-primary">
-          <Image
-            src="/images/avatar.png"
-            alt="profile"
-            width={200}
-            height={200}
-            className="m-0"
-          />
-        </div>
+    <form
+      action={async (formData) => {
+        "use server";
 
-        <h1>Mateusz Wlekliński</h1>
+        const emailForm = formData.get("email");
+        const nameForm = formData.get("name");
+        const subjectForm = formData.get("subject");
+        const messageForm = formData.get("message");
+
+        const schema = z.object({
+          email: z.string(),
+          name: z.string(),
+          subject: z.string(),
+          message: z.string(),
+        });
+        const { email, name, message, subject } = schema.parse({
+          email: emailForm,
+          name: nameForm,
+          subject: subjectForm,
+          message: messageForm,
+        });
+        if (!process.env.EMAIL_SEND || !process.env.EMAIL_NAME) {
+          throw new Error("Email not set");
+        }
+        const admin = {
+          name: process.env.EMAIL_NAME,
+          email: process.env.EMAIL_SEND,
+        };
+
+        const promise1 = sendMail({
+          sender: admin,
+          to: [
+            {
+              name,
+              email,
+            },
+          ],
+          subject,
+          htmlContent: `
+              Thank you for contacting me! I will get back to you as soon as possible.
+              `,
+        });
+        const promise2 = sendMail({
+          sender: admin,
+          to: [
+            {
+              name: admin.name,
+              email: admin.email,
+            },
+          ],
+          subject: "NEW MESSAGE FROM PORTFOLIO",
+          htmlContent: `
+              <h1>From: ${name}</h1>
+              <h2>Email: ${email}</h2>
+              <p>${message}</p>
+              `,
+        });
+        await Promise.all([promise1, promise2]);
+      }}
+      className="flex flex-col gap-4"
+    >
+      <div className="flex gap-2">
+        <Input label="Name" name="name" />
+        <Input label="Email" name="email" required type="email" />
       </div>
-      <div className="flex flex-col gap-5 text-center">
-        <div className="p-5 shadow">
-          <Link
-            className=" hover:outline flex flex-col p-2 rounded "
-            href={`mailto:wleklinskimateusz05@gmail.com`}
-          >
-            <span className="mb-0">Write to me!</span>
-            <span>wleklinskimateusz05@gmail.com</span>
-          </Link>
-        </div>
-        <div className="items-center flex flex-col gap-5 justify-center p-5 shadow-lg">
-          <p className="mb-0">Or find me on social media!</p>
-          <Socials />
-        </div>
-      </div>
-    </div>
+      <Input label="Subject" name="subject" />
+      <TextArea label="Message" name="message" />
+      <Button type="submit">Submit</Button>
+    </form>
   );
 }

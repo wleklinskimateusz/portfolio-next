@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { Social, socials } from "@/app/_data/socials";
+import { Social, socials } from "@/data/socials";
 import { IconType } from "react-icons";
 import { FaXTwitter } from "react-icons/fa6";
 
