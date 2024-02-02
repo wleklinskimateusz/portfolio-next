@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Socials } from "@/components/Socials";
 import { Viewport } from "next";
 import { Playfair_Display } from "next/font/google";
-import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const playfairFont = Playfair_Display({
   weight: ["400", "700"],
@@ -75,6 +75,7 @@ export default function RootLayout({
             <Socials />
           </div>
         </footer>
+        <SpeedInsights />
       </body>
     </html>
   );
