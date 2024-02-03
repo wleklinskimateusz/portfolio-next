@@ -6,6 +6,10 @@
   @apply outline-primary;
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

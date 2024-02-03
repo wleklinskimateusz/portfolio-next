@@ -1,8 +1,10 @@
-import { Input } from "./_components/Input";
-import { TextArea } from "./_components/TextArea";
 import { z } from "zod";
 import { sendMail } from "@/services/sendMail";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { ReactNode } from "react";
 
 export const metadata = {
   title: "Contact - Mateusz Wlekliński",
@@ -71,13 +73,44 @@ export default function Contact() {
       }}
       className="flex flex-col gap-4"
     >
-      <div className="flex gap-2">
-        <Input label="Name" name="name" />
-        <Input label="Email" name="email" required type="email" />
-      </div>
-      <Input label="Subject" name="subject" />
-      <TextArea label="Message" name="message" />
+      <FormControl label="Name" id="name">
+        <Input name="name" autoComplete="name" id="name" />
+      </FormControl>
+
+      <FormControl label="Email" id="email">
+        <Input
+          name="email"
+          id="email"
+          autoComplete="email"
+          required
+          type="email"
+        />
+      </FormControl>
+
+      <FormControl label="Subject" id="subject">
+        <Input id="subject" name="subject" />
+      </FormControl>
+      <FormControl label="Message" id="message">
+        <Textarea name="message" id="message" />
+      </FormControl>
       <Button type="submit">Submit</Button>
     </form>
   );
 }
+
+const FormControl = ({
+  children,
+  label,
+  id,
+}: {
+  children: ReactNode;
+  label: string;
+  id: string;
+}) => {
+  return (
+    <div aria-label="form control">
+      <Label htmlFor={id}>{label}</Label>
+      {children}
+    </div>
+  );
+};

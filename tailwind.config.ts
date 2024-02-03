@@ -1,12 +1,13 @@
+import plugin from "tailwindcss/plugin";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -15,7 +16,13 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      serif: ["var(--montserrat)"],
+    },
     extend: {
+      backgroundImage: {
+        planet: "url('/images/hero-photo.png')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -72,5 +79,19 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          hero: (value) => ({
+            overflow: "hidden",
+            backgroundSize: "cover !important",
+            background: `radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.65) 100%), ${value} no-repeat center center scroll`,
+          }),
+        },
+        { values: theme("backgroundImage") }
+      );
+    }),
+  ],
+};
