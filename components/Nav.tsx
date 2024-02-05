@@ -25,7 +25,7 @@ export const Nav: FC = () => {
       className={twMerge(
         "fixed left-5 top-5 z-20 flex h-16 w-16 items-center justify-center rounded-full bg-primary px-5 text-primary-foreground shadow-lg transition-none duration-300 md:left-0 md:right-0 md:mx-auto md:h-10 md:w-fit",
         open &&
-          "left-0 top-0 h-screen w-screen rounded-none p-0 text-primary transition-[width]",
+          "h-dvh left-0 top-0 w-screen rounded-none p-0 text-primary transition-[width]",
       )}
     >
       <Burger

@@ -67,7 +67,7 @@ export default function RootLayout({
         <Nav />
         {/* <Breadcrumbs /> */}
         <Analytics />
-        <main className="flex-1 flex flex-col ">{children}</main>
+        <main className="flex flex-1 flex-col ">{children}</main>
         <Footer />
         <SpeedInsights />
       </body>

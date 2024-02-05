@@ -7,22 +7,21 @@ export const HeroSection = () => {
     <section
       id="hero"
       aria-label="Hero Section"
-      className="relative  hero-planet  h-screen shadow flex flex-col "
+      className="h-dvh relative flex flex-col shadow hero-planet "
     >
-      {/* <Image src="/images/hero-photo.png" className="-z-50" fill alt="" /> */}
-      <div className="py-32 justify-end p-8 gap-8  flex flex-col  h-full">
+      <div className="flex h-full flex-col justify-end  gap-8 p-8  py-32">
         <div className="flex flex-col gap-2">
-          <h1 className="2xl:text-7xl  text-white font-serif xl:text-6xl lg:text-5xl text-4xl">
+          <h1 className="font-serif  text-4xl text-white lg:text-5xl xl:text-6xl 2xl:text-7xl">
             Coding the Future: <br className="hidden sm:block" /> Elegant
             Solutions for <span className="font-extrabold">Bold</span> Ideas
           </h1>
-          <div className="2xl:text-2xl text-gray-300 xl:text-xl lg:text-lg  text-md">
+          <div className="text-md text-gray-300 lg:text-lg xl:text-xl  2xl:text-2xl">
             Transforming Vision into Reality with Precision and Creativity
           </div>
         </div>
 
         <Link
-          className="absolute text-gray-300 transition-colors duration-300 hover:text-white flex flex-col justify-center items-center font-serif bottom-8 left-0 w-fit right-0 mx-auto"
+          className="absolute bottom-8 left-0 right-0 mx-auto flex w-fit flex-col items-center justify-center font-serif text-gray-300 transition-colors duration-300 hover:text-white"
           href={{ hash: "personal-features" }}
         >
           <span>Explore My World</span>
