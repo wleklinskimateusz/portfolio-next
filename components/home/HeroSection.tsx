@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { Icon } from "@virtuslab/tetrisly-icons";
+import Image from "next/image";
 
 export const HeroSection = () => {
   return (
     <section
       id="hero"
       aria-label="Hero Section"
-      className="relative hero-planet h-screen shadow flex flex-col "
+      className="relative  hero-planet  h-screen shadow flex flex-col "
     >
+      {/* <Image src="/images/hero-photo.png" className="-z-50" fill alt="" /> */}
       <div className="py-32 justify-end p-8 gap-8  flex flex-col  h-full">
         <div className="flex flex-col gap-2">
           <h1 className="2xl:text-7xl  text-white font-serif xl:text-6xl lg:text-5xl text-4xl">
