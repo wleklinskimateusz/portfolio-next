@@ -21,7 +21,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        planet: "url('/images/hero-photo.png')",
+        planet: "url('/images/hero-photo.jpg')",
       },
       colors: {
         border: "hsl(var(--border))",
