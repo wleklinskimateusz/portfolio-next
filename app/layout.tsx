@@ -1,12 +1,10 @@
-import { Nav } from "@/components/Nav";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Socials } from "@/components/Socials";
+
 import { Viewport } from "next";
-import { Playfair_Display, Montserrat, Roboto } from "next/font/google";
+import { Montserrat, Roboto } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Footer } from "@/components/Footer";
+import { personalConfig } from "@/config/personalConfig";
 
 const montserratFont = Montserrat({
   weight: ["400", "500", "600", "700"],
@@ -39,14 +37,13 @@ export const metadata = {
     "front-end development",
   ],
   authors: {
-    name: "Mateusz Wlekliński",
-    url: "https://github.com/wleklinskimateusz",
+    name: personalConfig.name,
+    url: personalConfig.github,
   },
   robots: "index, follow",
   openGraph: {
     title: "Mateusz Wlekliński - Web Developer",
-    description:
-      "Junior Frontend Developer with a passion for web development. Explore my projects and blog about coding and tech.",
+    description: personalConfig.description,
   },
 };
 export const viewport = {
@@ -61,15 +58,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`flex min-h-screen flex-col ${montserratFont.variable} ${robotoFont.className}`}
-      >
-        <Nav />
-        {/* <Breadcrumbs /> */}
+      <body className={` ${montserratFont.variable} ${robotoFont.className}`}>
         <Analytics />
-        <main className="flex flex-1 flex-col ">{children}</main>
-        <Footer />
         <SpeedInsights />
+        {children}
       </body>
     </html>
   );

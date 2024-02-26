@@ -1,3 +1,4 @@
+import { personalConfig } from "@/config/personalConfig";
 import { ReactNode } from "react";
 import { IconType } from "react-icons";
 import {
@@ -22,7 +23,7 @@ export const socials = [
   },
   {
     name: "Github",
-    link: "https://github.com/wleklinskimateusz",
+    link: personalConfig.github,
     Icon: FaGithub,
   },
   {

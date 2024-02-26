@@ -4,13 +4,14 @@ import React, { ComponentProps, FC, useState } from "react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
+import { navigationConfig } from "@/config/navigationConfig";
 
 const routeMap = {
-  Home: "/",
-  Resume: "/resume",
-  Projects: "/projects",
-  Blog: "/blogs",
-  Contact: "/contact",
+  Home: navigationConfig.Home,
+  Resume: navigationConfig.Resume,
+  Projects: navigationConfig.Projects,
+  Blog: navigationConfig.Blog,
+  Contact: navigationConfig.Contact,
 };
 
 const items = Object.keys(routeMap) as (keyof typeof routeMap)[];
@@ -25,7 +26,7 @@ export const Nav: FC = () => {
       className={twMerge(
         "fixed left-5 top-5 z-20 flex h-16 w-16 items-center justify-center rounded-full bg-primary px-5 text-primary-foreground shadow-lg transition-none duration-300 md:left-0 md:right-0 md:mx-auto md:h-10 md:w-fit",
         open &&
-          "h-dvh left-0 top-0 w-screen rounded-none p-0 text-primary transition-[width]",
+          "left-0 top-0 h-dvh w-screen rounded-none p-0 text-primary transition-[width]",
       )}
     >
       <Burger

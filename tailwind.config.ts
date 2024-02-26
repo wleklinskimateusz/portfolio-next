@@ -24,6 +24,19 @@ module.exports = {
         planet: "url('/images/hero-photo.jpg')",
       },
       colors: {
+        amber: {
+          "50": "#fffbeb",
+          "100": "#fff5c6",
+          "200": "#ffe888",
+          "300": "#ffd74a",
+          "400": "#ffc014",
+          "500": "#f9a207",
+          "600": "#dd7902",
+          "700": "#b75506",
+          "800": "#94400c",
+          "900": "#7a350d",
+          "950": "#461b02",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -90,7 +103,7 @@ module.exports = {
             background: `radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.65) 100%), ${value} no-repeat center center scroll`,
           }),
         },
-        { values: theme("backgroundImage") }
+        { values: theme("backgroundImage") },
       );
     }),
   ],

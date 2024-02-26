@@ -1,3 +1,5 @@
+"use client";
+
 import Image, { type ImageProps } from "next/image";
 import {
   Card,
@@ -5,27 +7,36 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-} from "../ui/card";
+} from "../../../../components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselPrevious,
   CarouselNext,
   CarouselItem,
-} from "../ui/carousel";
+} from "../../../../components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 export const PersonalFeatures = () => {
   return (
     <section
       id="personal-features"
       aria-label="Personal Features"
-      className="flex flex-col py-40 items-center gap-20"
+      className="flex flex-col items-center gap-20 py-40"
     >
-      <h2 className="xl:text-5xl font-serif lg:text-4xl text-3xl">
+      <h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl">
         A Glimpse Into My Tech Universe
       </h2>
 
-      <Carousel className="w-full max-w-[70%]">
+      <Carousel
+        opts={{ loop: true }}
+        plugins={[
+          Autoplay({
+            delay: 4000,
+          }),
+        ]}
+        className="w-full max-w-[70%]"
+      >
         <CarouselContent>
           <TraitBox
             image={{

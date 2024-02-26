@@ -1,8 +1,5 @@
-"use client";
 import React, { FC } from "react";
 import Image from "next/image";
-
-import clsx from "clsx";
 
 import Link from "next/link";
 
@@ -46,17 +43,24 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         </div>
       </div>
       <div className="absolute left-48 right-48 top-full flex -translate-y-1/2 transform cursor-default justify-between">
-        {prevId && (
-          <Link href={`#project-${prevId}`} className="btn-circle btn">
-            ❮
-          </Link>
-        )}
-        {nextId && (
-          <Link href={`#project-${nextId}`} className="btn-circle btn ">
-            ❯
-          </Link>
-        )}
+        <PrevNextLink id={prevId} option="prev" />
+        <PrevNextLink id={nextId} option="next" />
       </div>
     </li>
+  );
+};
+
+const PrevNextLink = ({
+  id,
+  option,
+}: {
+  id: number | undefined;
+  option: "prev" | "next";
+}) => {
+  if (!id) return null;
+  return (
+    <Link href={`#project-${id}`} className="btn-circle btn">
+      {option === "prev" ? "❮" : "❯"}
+    </Link>
   );
 };

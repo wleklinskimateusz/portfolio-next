@@ -1,4 +1,4 @@
-import { ProjectCard } from "@/app/projects/_components/ProjectCard";
+import { ProjectCard } from "./_components/ProjectCard";
 import { projects } from "@/data/projects";
 
 export const metadata = {
