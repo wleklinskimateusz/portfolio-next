@@ -2,11 +2,11 @@ import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
 export const Technologies = () => (
-  <section className="mx-auto flex max-w-4xl flex-col items-center gap-10">
-    <h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl">
+  <section className="mx-auto flex w-full max-w-4xl grow flex-col gap-10">
+    <h2 className="text-center font-serif text-3xl lg:text-4xl xl:text-5xl">
       Technologies I Love
     </h2>
-    <ul className="flex  flex-col justify-center gap-10 px-4 md:gap-10">
+    <ul className="flex flex-col justify-center gap-10 px-4 md:gap-10">
       <Technology
         technology="Next.js"
         description="Next.js is my go-to for crafting applications with elegance and simplicity. The seamless integration with React and constant innovation in introducing features that enhance the React ecosystem truly resonate with my development philosophy."
@@ -46,7 +46,7 @@ const Technology = ({
 }) => {
   const isRightPosition = textPosition === "right";
   return (
-    <li className="mx-auto grid grid-cols-1 gap-10 p-5 md:grid-cols-2">
+    <li className="mx-auto grid grid-cols-1 gap-10 p-5 md:w-full md:grid-cols-2">
       <div
         className={`my-auto flex max-w-[384px] flex-col gap-2 ${isRightPosition ? "md:order-1" : "md:order-2"}`}
       >

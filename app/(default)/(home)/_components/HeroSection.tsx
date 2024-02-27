@@ -7,7 +7,7 @@ export const HeroSection = () => {
     <section
       id="hero"
       aria-label="Hero Section"
-      className="h-dvh relative flex flex-col shadow hero-planet "
+      className="relative flex h-dvh flex-col shadow-2xl hero-planet "
     >
       <div className="flex h-full flex-col justify-end  gap-8 p-8  py-32">
         <div className="flex flex-col gap-2">
