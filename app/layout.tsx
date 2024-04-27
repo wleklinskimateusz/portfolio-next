@@ -21,7 +21,7 @@ const robotoFont = Roboto({
 export const metadata = {
   title: "Mateusz Wlekliński - Web Developer",
   description:
-    "Junior Frontend Developer with a passion for web development. Explore my projects and blog about coding and tech.",
+    "Frontend Developer with a passion for web development. Explore my projects and blog about coding and tech.",
   keywords: [
     "react web development",
     "javascript for web development",

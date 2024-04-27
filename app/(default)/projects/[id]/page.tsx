@@ -45,21 +45,34 @@ export default function Project({ params: { id: rawId } }: Params) {
           <h1>{name}</h1>
           <p>{description}</p>
         </div>
-        {(repo || live) && (
-          <div className="flex gap-3">
-            {repo && (
-              <Link href={repo} className="btn-primary btn">
-                Check out the Code
-              </Link>
-            )}
-            {live && (
-              <Link href={live} className="btn-secondary btn">
-                Live Demo
-              </Link>
-            )}
-          </div>
-        )}
+        <ActionButtons repo={repo} live={live} />
       </div>
     </div>
   );
 }
+
+const ActionButtons = ({
+  repo,
+  live,
+}: {
+  repo?: string;
+  live: string | null;
+}) => {
+  if (!repo && !live) return null;
+  return (
+    <div className="flex gap-3">
+      <RepoLink repo={repo} />
+      <LiveLink live={live} />
+    </div>
+  );
+};
+
+const RepoLink = ({ repo }: { repo?: string }) => {
+  if (!repo) return null;
+  return <Link href={repo}>Check out the Code</Link>;
+};
+
+const LiveLink = ({ live }: { live: string | null }) => {
+  if (!live) return null;
+  return <Link href={live}>Live Demo</Link>;
+};

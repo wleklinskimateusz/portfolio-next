@@ -64,16 +64,16 @@ const BlogCard = ({
   metadata: Awaited<ReturnType<typeof getMetadata>>;
 }) => {
   return (
-    <div key={title} className="card glass flex max-w-sm shadow-lg">
+    <div key={title} className=" flex max-w-sm shadow-lg">
       {image && (
         <figure>
           <Image src={image} alt={title} width={1057} height={554} />
         </figure>
       )}
-      <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+      <div className="">
+        <h2 className="">{title}</h2>
         <p>{description}</p>
-        <div className="card-actions justify-end">
+        <div className=" justify-end">
           <Link className="btn-primary btn w-fit" href={link}>
             Read me
           </Link>

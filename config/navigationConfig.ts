@@ -1,7 +1,6 @@
 export const navigationConfig = {
   Home: "/",
-  Resume: "/resume",
   Projects: "/projects",
-  Blog: "/blogs",
+  Blog: "/blog",
   Contact: "/contact",
 } as const satisfies Record<string, string>;

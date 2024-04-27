@@ -21,25 +21,13 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   nextId,
 }) => {
   return (
-    <li id={`project-${id}`} className="carousel-item relative w-full">
-      {image && (
-        <figure className="m-0">
-          <Image
-            className="h-full"
-            src={image}
-            width={120}
-            height={360}
-            alt={title}
-          />
-        </figure>
-      )}
-      <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+    <li id={`project-${id}`} className="relative w-full">
+      <ProjectThumbnail image={image} title={title} />
+      <div>
+        <h2>{title}</h2>
         <p>{description}</p>
-        <div className="card-actions justify-end">
-          <Link className="btn-primary btn" href={`/projects/${id}`}>
-            See more
-          </Link>
+        <div className="justify-end">
+          <Link href={`/projects/${id}`}>See more</Link>
         </div>
       </div>
       <div className="absolute left-48 right-48 top-full flex -translate-y-1/2 transform cursor-default justify-between">
@@ -47,6 +35,27 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         <PrevNextLink id={nextId} option="next" />
       </div>
     </li>
+  );
+};
+
+const ProjectThumbnail = ({
+  image,
+  title,
+}: {
+  image: string | null;
+  title: string;
+}) => {
+  if (!image) return null;
+  return (
+    <figure className="m-0">
+      <Image
+        className="h-full"
+        src={image}
+        width={120}
+        height={360}
+        alt={title}
+      />
+    </figure>
   );
 };
 
@@ -58,9 +67,5 @@ const PrevNextLink = ({
   option: "prev" | "next";
 }) => {
   if (!id) return null;
-  return (
-    <Link href={`#project-${id}`} className="btn-circle btn">
-      {option === "prev" ? "❮" : "❯"}
-    </Link>
-  );
+  return <Link href={`#project-${id}`}>{option === "prev" ? "❮" : "❯"}</Link>;
 };
