@@ -16,7 +16,6 @@ export const Footer = () => {
           <div className="hidden gap-2 text-center text-sm text-gray-500 md:flex">
             <Link href={navigationConfig.Home}>Home</Link>
             <Link href={navigationConfig.Projects}>Projects</Link>
-            <Link href={navigationConfig.Blog}>Blog</Link>
             <Link href={navigationConfig.Contact}>Contact</Link>
           </div>
         </div>

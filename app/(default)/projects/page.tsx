@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { ProjectCard } from "./_components/ProjectCard";
-import { projects } from "@/data/projects";
 
 export const metadata = {
   title: "Projects - Mateusz Wlekliński",
@@ -12,8 +10,8 @@ export default async function Projects() {
       <h1 className="text-center">Projects I have worked on</h1>
       <ul className="mx-auto my-8 grid w-fit grid-cols-1 content-center justify-items-center gap-8 p-4 lg:grid-cols-2  2xl:grid-cols-3">
         <ProjectCard
-          name="Tetrisly Design System"
-          tags={["Comercial Project", "VirtusLab"]}
+          name="Tetrisly"
+          tags={["Comercial", "VirtusLab", "Design System"]}
           url="tetrisly"
           image="/images/projects/tetrisly.svg"
           finished={new Date(2024, 4, 1)}
@@ -24,7 +22,7 @@ export default async function Projects() {
         </ProjectCard>
         <ProjectCard
           name="Budget Tracker"
-          tags={["Finance", "Personal", "DB", "Auth"]}
+          tags={["Finance", "Fullstack", "Auth"]}
           url="budget-tracker"
           image="https://budget-livid.vercel.app/logo.svg"
           finished={null}
@@ -34,7 +32,7 @@ export default async function Projects() {
         </ProjectCard>
         <ProjectCard
           name="Pokedex"
-          tags={["Beginner", "Personal", "Rest API", "Redux"]}
+          tags={["Beginner", "Rest API", "Redux"]}
           url="pokedex"
           image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
           finished={new Date(2022, 3, 1)}

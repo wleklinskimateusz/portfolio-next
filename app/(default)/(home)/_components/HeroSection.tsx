@@ -16,7 +16,8 @@ export const HeroSection = () => {
             Solutions for <span className="font-extrabold">Bold</span> Ideas
           </h1>
           <div className="text-md text-gray-300 lg:text-lg xl:text-xl 2xl:text-2xl">
-            Transforming Vision into Reality with Precision and Creativity
+            Building and maintaining software solutions that help you achieve
+            your goals.
           </div>
           <Link href={{ hash: "personal-features" }}>
             <Button size="lg">

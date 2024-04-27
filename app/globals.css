@@ -58,5 +58,13 @@ html {
 }
 
 h1 {
-  @apply font-serif text-4xl font-bold;
+  @apply py-4 font-serif text-4xl font-bold;
+}
+
+h2 {
+  @apply py-2 font-serif text-3xl font-bold;
+}
+
+h3 {
+  @apply py-1 font-serif text-2xl font-bold;
 }

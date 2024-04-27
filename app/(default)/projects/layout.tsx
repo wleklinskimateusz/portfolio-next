@@ -3,5 +3,5 @@ export default function ProjectsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="mx-auto mt-24 flex grow">{children}</div>;
+  return <div className="mt-24 flex grow">{children}</div>;
 }

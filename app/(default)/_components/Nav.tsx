@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 const routeMap = {
   Home: navigationConfig.Home,
   Projects: navigationConfig.Projects,
-  Blog: navigationConfig.Blog,
   Contact: navigationConfig.Contact,
 } as const;
 
@@ -18,7 +17,6 @@ const items = Object.entries(routeMap) as [keyof typeof routeMap, string][];
 export const Nav = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const disabledLinks = ["Blog"] satisfies (keyof typeof routeMap)[];
   useCloseOnResize(() => setOpen(false));
   return (
     <nav
@@ -42,18 +40,13 @@ export const Nav = () => {
       >
         {items.map(([name, path]) => {
           const active = isActive(pathname, path);
-          const isDisabled = disabledLinks.includes(name);
           return (
             <Link
-              aria-disabled={isDisabled}
               key={name}
-              href={isDisabled ? "" : path}
-              onClick={(e) =>
-                isDisabled ? e.preventDefault() : setOpen(false)
-              }
+              href={path}
+              onClick={(e) => setOpen(false)}
               className={cn(
                 "m-2 rounded px-2 py-1",
-                isDisabled && "cursor-not-allowed opacity-50",
                 active && " underline underline-offset-4",
               )}
             >
