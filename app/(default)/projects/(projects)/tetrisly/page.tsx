@@ -24,7 +24,7 @@ export default function TetrislyPage() {
       </section>
 
       <section className="grid grid-cols-3 gap-x-16 gap-y-4">
-        <h2 className="col-span-3">
+        <h2 className="col-span-3 text-center">
           Tetrisly is a{" "}
           <span className="font-bold text-primary">
             customizable design system.
@@ -105,10 +105,24 @@ export default function TetrislyPage() {
         </Card>
       </section>
       <section>
-        <h2>What was my role?</h2>
+        <h2 className="text-center">Look what Tetrisly for React can do!</h2>
+        <iframe
+          className="my-8 h-[700px] w-full rounded"
+          src="https://wleklinskimateusz.github.io/mini-demo-tet/"
+        ></iframe>
+        <div className="text-lg">
+          For full demo visit:{" "}
+          <Link href="https://demo.tetrisly.com">
+            <Button size="lg" className="px-0" variant="link">
+              demo.tetrisly.com
+            </Button>
+          </Link>
+        </div>
+      </section>
+      <section>
+        <h2 className="text-center">What was my role?</h2>
         <p>
-          During my time in a team I managed to contribute in several ways.
-          Among them:
+          During my time in a team I contributed in several ways. Among them:
         </p>
         <ul>
           <li>Creating and maintaining `tetrisly-icons` package</li>
@@ -128,12 +142,12 @@ const TetrislyElement = ({
   actions?: { label: string; href: string }[];
 }) => (
   <li>
-    <Card className="h-full border-none text-center shadow-none">
-      <CardHeader>
+    <Card className=" h-full border-none shadow-none">
+      <CardHeader className="px-0">
         <CardTitle className="text-primary">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="text-sm">{children}</CardContent>
-      <CardFooter className="flex-col gap-2 px-2">
+      <CardContent className="px-0 text-sm">{children}</CardContent>
+      <CardFooter className=" px-0 ">
         {actions?.map(({ label, href }) => (
           <Link key={label} href={href}>
             <Button size="sm" variant="secondary">
