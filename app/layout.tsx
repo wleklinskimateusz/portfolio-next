@@ -5,6 +5,7 @@ import { Viewport } from "next";
 import { Montserrat, Roboto } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { personalConfig } from "@/config/personalConfig";
+import { WelcomeMessage } from "@/components/welcome-message";
 
 const montserratFont = Montserrat({
   weight: ["400", "500", "600", "700"],
@@ -60,6 +61,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={` ${montserratFont.variable} ${robotoFont.className}`}>
         <Analytics />
+        <WelcomeMessage />
         <SpeedInsights />
         {children}
       </body>

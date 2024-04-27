@@ -1,39 +1,78 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import Image from "next/image";
 
 import Link from "next/link";
+import { Project } from "@/data/projects";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 type ProjectCardProps = {
-  title: string;
-  description: string;
-  image: string | null;
-  id: number;
-  prevId?: number;
-  nextId?: number;
+  name: string;
+  tags?: string[];
+  children: ReactNode;
+  url: string;
+  className?: string;
+  image?: string;
+  finished: Date | null;
 };
 
 export const ProjectCard: FC<ProjectCardProps> = ({
-  title,
-  id,
-  description,
+  name,
+  children,
   image,
-  prevId,
-  nextId,
+  url,
+  className,
+  tags,
+  finished,
 }) => {
   return (
-    <li id={`project-${id}`} className="relative w-full">
-      <ProjectThumbnail image={image} title={title} />
-      <div>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <div className="justify-end">
-          <Link href={`/projects/${id}`}>See more</Link>
-        </div>
-      </div>
-      <div className="absolute left-48 right-48 top-full flex -translate-y-1/2 transform cursor-default justify-between">
-        <PrevNextLink id={prevId} option="prev" />
-        <PrevNextLink id={nextId} option="next" />
-      </div>
+    <li className={cn("h-full max-w-md", className)}>
+      <Link href={`/projects/${url}`}>
+        <Card className="flex h-full flex-col hover:shadow-lg">
+          <CardHeader className="space-y-0">
+            <div className="flex flex-row items-center justify-between">
+              <CardTitle>{name}</CardTitle>
+              <div className="flex gap-1 ">
+                {tags?.map((tag) => (
+                  <Badge key={tag} variant="secondary">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            <div>
+              <Badge className="hover:bg-primary">
+                {finished
+                  ? finished.toLocaleDateString("en", {
+                      year: "numeric",
+                      month: "short",
+                      day: undefined,
+                    })
+                  : "In Progress"}
+              </Badge>
+            </div>
+          </CardHeader>
+          <CardContent className="flex grow flex-col justify-between gap-4">
+            <div className="flex gap-4">
+              <div className="my-auto w-2/3">
+                <div className="text-sm">{children}</div>
+              </div>
+              <ProjectThumbnail image={image ?? null} title={name} />
+            </div>
+            <Button variant="secondary" className="w-fit">
+              Learn More
+            </Button>
+          </CardContent>
+        </Card>
+      </Link>
     </li>
   );
 };

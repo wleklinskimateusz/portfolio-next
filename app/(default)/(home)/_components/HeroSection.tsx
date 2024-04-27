@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Icon } from "@virtuslab/tetrisly-icons";
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
   return (
@@ -15,18 +15,16 @@ export const HeroSection = () => {
             Coding the Future: <br className="hidden sm:block" /> Elegant
             Solutions for <span className="font-extrabold">Bold</span> Ideas
           </h1>
-          <div className="text-md text-gray-300 lg:text-lg xl:text-xl  2xl:text-2xl">
+          <div className="text-md text-gray-300 lg:text-lg xl:text-xl 2xl:text-2xl">
             Transforming Vision into Reality with Precision and Creativity
           </div>
+          <Link href={{ hash: "personal-features" }}>
+            <Button size="lg">
+              <span>Explore My World</span>
+              <Icon name="20-arrow-down" />
+            </Button>
+          </Link>
         </div>
-
-        <Link
-          className="absolute bottom-8 left-0 right-0 mx-auto flex w-fit flex-col items-center justify-center font-serif text-gray-300 transition-colors duration-300 hover:text-white"
-          href={{ hash: "personal-features" }}
-        >
-          <span>Explore My World</span>
-          <Icon name="20-arrow-down" />
-        </Link>
       </div>
     </section>
   );

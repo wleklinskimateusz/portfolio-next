@@ -1,64 +1,43 @@
-import { checkIndexValue } from "@/services/checkIndex";
-import { FindIndex } from "@/types/FindIndex";
-import { z } from "zod";
-
-type Project = {
+export type Project = {
   name: string;
   description: string;
   image: string | null;
   repo: string | null;
   live: string | null;
+  finishDate: Date | null;
+  url: string;
 };
 
 export const projects = [
   {
-    name: "Pokedex",
-    description: "A pokedex app that allows to search and filter pokemons.",
-    image: "/images/projects/pokemons.png",
-    repo: "https://github.com/wleklinskimateusz/pokedex",
-    live: "https://wleklinskimateusz.github.io/pokedex/",
-  },
-  {
-    name: "Portfolio",
+    url: "tetrisly",
+    name: "Tetrisly Design System",
     description:
-      "Portfolio website built with Next.js, Tailwind CSS and TypeScript.",
-    image: "/images/projects/portfolio.png",
-    repo: "https://github.com/wleklinskimateusz/portfolio-next",
-    live: "/",
-  },
-  {
-    name: "Game of Life",
-    description: "Conway's Game of Life built with Rust",
-    image: "/images/projects/game-of-life.png",
-    repo: "https://github.com/wleklinskimateusz/game_of_life",
-    live: null,
+      "A comercial product I worked on as a typescript developer. It's a tool for creating design system and bridging the gap between design and development.",
+    image: "/images/projects/tetrisly.svg",
+    repo: "https://github.com/VirtusLab/tetrisly-react",
+    live: "https://tetrisly.com/",
+    finishDate: new Date(2024, 4, 25),
   },
   {
     name: "Pokedex",
-    description: "A pokedex app that allows to search and filter pokemons.",
-    image: "/images/projects/pokemons.png",
+    description:
+      "One of my first projects. An app that fetches data from external api, stores with state managment library and allows user, to search, filter and display pokemons.",
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
     repo: "https://github.com/wleklinskimateusz/pokedex",
     live: "https://wleklinskimateusz.github.io/pokedex/",
+    finishDate: new Date(2022, 3, 15),
+    url: "pokedex",
   },
   {
-    name: "Portfolio",
+    name: "Custom CMS",
     description:
-      "Portfolio website built with Next.js, Tailwind CSS and TypeScript.",
-    image: "/images/projects/portfolio.png",
-    repo: "https://github.com/wleklinskimateusz/portfolio-next",
-    live: "/",
-  },
-  {
-    name: "Game of Life",
-    description: "Conway's Game of Life built with Rust",
-    image: "/images/projects/game-of-life.png",
-    repo: "https://github.com/wleklinskimateusz/game_of_life",
+      "A custom CMS for managing content on my portfolio. Currently in development.",
+    image: null,
+    repo: null,
     live: null,
+    finishDate: null,
+    url: "custom-cms",
   },
 ] as const satisfies readonly Project[];
-
-export type ProjectIndex = FindIndex<typeof projects>;
-
-export const projectIndexSchema = z.custom<ProjectIndex>((value) =>
-  checkIndexValue(value, projects)
-);

@@ -56,3 +56,7 @@ html {
     --ring: 263.4 70% 50.4%;
   }
 }
+
+h1 {
+  @apply font-serif text-4xl font-bold;
+}
