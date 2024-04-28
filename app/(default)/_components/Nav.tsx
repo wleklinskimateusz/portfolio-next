@@ -1,29 +1,27 @@
 "use client";
 import Link from "next/link";
-import React, { ComponentProps, FC, useState } from "react";
-import { usePathname } from "next/navigation";
-import clsx from "clsx";
+import React, { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { navigationConfig } from "@/config/navigationConfig";
+import { cn } from "@/lib/utils";
 
 const routeMap = {
-  Home: navigationConfig.Home,
-  Resume: navigationConfig.Resume,
-  Projects: navigationConfig.Projects,
-  Blog: navigationConfig.Blog,
-  Contact: navigationConfig.Contact,
-};
+  Home: navigationConfig.home,
+  "About Me": navigationConfig.aboutMe,
+  Projects: navigationConfig.projects,
+  Contact: navigationConfig.contact,
+} as const;
 
-const items = Object.keys(routeMap) as (keyof typeof routeMap)[];
+type Entries<T> = [keyof T, T[keyof T]][];
 
-export const Nav: FC = () => {
-  const pathname = usePathname();
+const items = Object.entries(routeMap) as Entries<typeof routeMap>;
+
+export const Nav = () => {
   const [open, setOpen] = useState(false);
-  const disabledLinks = ["Resume", "Projects", "Blog"];
   useCloseOnResize(() => setOpen(false));
   return (
     <nav
-      className={twMerge(
+      className={cn(
         "fixed left-5 top-5 z-20 flex h-16 w-16 items-center justify-center rounded-full bg-primary px-5 text-primary-foreground shadow-lg transition-none duration-300 md:left-0 md:right-0 md:mx-auto md:h-10 md:w-fit",
         open &&
           "left-0 top-0 h-dvh w-screen rounded-none p-0 text-primary transition-[width]",
@@ -35,31 +33,26 @@ export const Nav: FC = () => {
         toggleOpen={() => setOpen((prev) => !prev)}
       />
       <div
-        className={twMerge(
+        className={cn(
           "hidden text-primary-foreground md:block",
           open &&
             "flex h-full w-full flex-col items-center justify-center bg-primary",
         )}
       >
-        {items.map((item) => {
-          const path = routeMap[item];
-          const active = isActive(pathname, path);
-          const isDisabled = disabledLinks.includes(item);
+        {items.map(([name, path]) => {
+          // const active = isActive(pathname, path);
           return (
             <Link
-              aria-disabled={isDisabled}
-              key={item}
+              key={name}
               href={path}
-              onClick={(e) =>
-                isDisabled ? e.preventDefault() : setOpen(false)
-              }
-              className={twMerge(
+              shallow
+              onClick={() => setOpen(false)}
+              className={cn(
                 "m-2 rounded px-2 py-1",
-                isDisabled && "cursor-not-allowed opacity-50",
-                active && " underline underline-offset-4",
+                // active && " underline underline-offset-4",
               )}
             >
-              {item}
+              {name}
             </Link>
           );
         })}
@@ -69,7 +62,7 @@ export const Nav: FC = () => {
 };
 
 function useCloseOnResize(close: () => void) {
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("resize", close);
     return () => window.removeEventListener("resize", close);
   }, [close]);

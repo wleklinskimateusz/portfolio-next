@@ -1,5 +1,5 @@
 import { ProjectCard } from "./_components/ProjectCard";
-import { projects } from "@/data/projects";
+import { ProjectList } from "./_components/ProjectList";
 
 export const metadata = {
   title: "Projects - Mateusz Wlekliński",
@@ -7,24 +7,9 @@ export const metadata = {
 
 export default async function Projects() {
   return (
-    <div className="m-auto h-full  w-screen p-10">
-      <h1 className=" text-center">My Projects</h1>
-      <ul
-        id="carousel"
-        className="carousel-center carousel rounded-box space-x-4  p-4"
-      >
-        {projects.map(({ name, image, description }, id) => (
-          <ProjectCard
-            key={id}
-            title={name}
-            id={id}
-            image={image}
-            description={description}
-            prevId={id !== 0 ? id - 1 : undefined}
-            nextId={id !== projects.length - 1 ? id + 1 : undefined}
-          />
-        ))}
-      </ul>
-    </div>
+    <section className="m-auto h-full">
+      <h1 className="text-center">Projects I have worked on</h1>
+      <ProjectList />
+    </section>
   );
 }
