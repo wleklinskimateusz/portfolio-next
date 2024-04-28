@@ -8,10 +8,10 @@ type SoftwareDeveloperProps = {
 export const SoftwareDeveloper = ({ titles }: SoftwareDeveloperProps) => {
   const { title, spanRef } = useChangingTitle(titles);
   return (
-    <div className="flex gap-2 font-serif text-4xl">
+    <div className="flex gap-2 font-serif text-2xl md:text-4xl">
       <div
         ref={spanRef}
-        className="w-48 text-right text-primary transition-opacity duration-500"
+        className="w-32 text-right text-primary transition-opacity duration-500 md:w-48"
       >
         {title}
       </div>{" "}
