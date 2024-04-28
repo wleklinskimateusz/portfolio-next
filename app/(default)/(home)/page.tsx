@@ -1,7 +1,4 @@
-import { Technologies } from "./_components/Technologies";
 import { HeroSection } from "./_components/HeroSection";
-
-import { PersonalFeatures } from "./_components/PersonalFeatures";
 import { ProjectList } from "../projects/_components/ProjectList";
 import { ScreenWrapper } from "../_components/ScreenWrapper";
 
@@ -15,7 +12,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col">
       <HeroSection />
-      {/* <PersonalFeatures />  */}
+
       <ScreenWrapper>
         {/* <section id="about-me" className="py-20">
           <h2 className="text-center">Who am I?</h2>

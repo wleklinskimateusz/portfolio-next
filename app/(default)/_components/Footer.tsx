@@ -15,6 +15,7 @@ export const Footer = () => {
           <p>© 2024 Mateusz Wlekliński</p>
           <div className="hidden gap-2 text-center text-sm text-gray-500 md:flex">
             <Link href={navigationConfig.home}>Home</Link>
+            <Link href={navigationConfig.aboutMe}>About Me</Link>
             <Link href={navigationConfig.projects}>Projects</Link>
             <Link href={navigationConfig.contact}>Contact</Link>
           </div>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+
 type RoleElementProps = Omit<
   React.HtmlHTMLAttributes<HTMLLIElement>,
   "children"
@@ -9,6 +10,7 @@ type RoleElementProps = Omit<
   title: string;
   responsibilities: string[];
 };
+
 export const RoleElement = ({
   className,
   responsibilities,
@@ -27,7 +29,9 @@ export const RoleElement = ({
       <h3 className="text-primary">{title}</h3>
       <ul className="flex grow flex-col gap-1">
         {responsibilities.map((responsibility) => (
-          <Responsibilty key={responsibility}>{responsibility}</Responsibilty>
+          <li key={responsibility} className="rounded bg-slate-200 px-4 py-2">
+            {responsibility}
+          </li>
         ))}
       </ul>
 
@@ -48,7 +52,3 @@ const LinksFragment = ({ links }: Pick<RoleElementProps, "links">) => {
     </div>
   );
 };
-
-const Responsibilty = ({ children }: { children: string }) => (
-  <li className="rounded bg-slate-200 px-4 py-2">{children}</li>
-);

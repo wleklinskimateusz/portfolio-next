@@ -9,15 +9,13 @@ import {
 import Link from "next/link";
 import { ReactNode } from "react";
 
-export const Feature = ({
-  title,
-  children,
-  actions,
-}: {
+type FeatureProps = {
   title: string;
   children: ReactNode;
   actions?: { label: string; href: string }[];
-}) => (
+};
+
+export const Feature = ({ title, children, actions }: FeatureProps) => (
   <li>
     <Card className=" flex h-full flex-col border-none shadow-none">
       <CardHeader className="px-0">

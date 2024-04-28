@@ -5,5 +5,9 @@ export default function ProjectLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <ScreenWrapper>{children}</ScreenWrapper>;
+  return (
+    <ScreenWrapper className="gap-32 2xl:max-w-screen-lg">
+      {children}
+    </ScreenWrapper>
+  );
 }

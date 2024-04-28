@@ -58,9 +58,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
           </CardHeader>
           <CardContent className="flex grow flex-col justify-between gap-4">
             <div className="flex gap-4">
-              <div className="my-auto w-2/3">
-                <div className="text-sm">{children}</div>
-              </div>
+              <div className="my-auto w-2/3 text-sm">{children}</div>
               <ProjectThumbnail image={image ?? null} title={name} />
             </div>
             <Button variant="secondary" className="w-fit">
