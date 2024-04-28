@@ -8,11 +8,11 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { Feature } from "../_components/Feature";
 
 export default function TetrislyPage() {
   return (
-    <div className="mx-auto flex w-full max-w-4xl flex-col gap-16">
+    <div className="mx-auto flex w-full max-w-md flex-col gap-16 sm:max-w-lg md:max-w-2xl lg:max-w-4xl">
       <section className="flex flex-col items-center gap-8 rounded bg-slate-300 p-4">
         <Image
           src="/images/projects/tetrisly.svg"
@@ -23,14 +23,14 @@ export default function TetrislyPage() {
         <h1 className="text-center">Tetrisly Design System</h1>
       </section>
 
-      <section className="grid grid-cols-3 gap-x-16 gap-y-4">
-        <h2 className="col-span-3 text-center">
+      <section className="grid grid-cols-3 gap-x-16 gap-y-4 text-center sm:text-left">
+        <h2 className="col-span-3  lg:text-center">
           Tetrisly is a{" "}
           <span className="font-bold text-primary">
             customizable design system.
           </span>
         </h2>
-        <div className="col-span-2 flex flex-col gap-8">
+        <div className="col-span-3 flex flex-col gap-8 lg:col-span-2">
           <p>
             Tetrisly is a product I have worked on as a TypeScript developer at
             VirtusLab. It&apos;s a tool that simplifies the process of creating
@@ -38,14 +38,19 @@ export default function TetrislyPage() {
             elements:
           </p>
           <ul className="grid grid-cols-2 gap-8">
-            <TetrislyElement
+            <Feature
               title="Token System"
-              actions={[{ label: "Tetrisly Tokens", href: "" }]}
+              actions={[
+                {
+                  label: "Tetrisly Tokens",
+                  href: "https://docs.tetrisly.com/foundations/overview/design-tokens",
+                },
+              ]}
             >
               A way of connecting colors, typography, spacing into variables to
               use in Figma and React
-            </TetrislyElement>
-            <TetrislyElement
+            </Feature>
+            <Feature
               title="Figma File"
               actions={[
                 {
@@ -56,8 +61,8 @@ export default function TetrislyPage() {
             >
               A file containing all the components for designers to customize
               and use in their designs
-            </TetrislyElement>
-            <TetrislyElement
+            </Feature>
+            <Feature
               title="React Library"
               actions={[
                 {
@@ -71,8 +76,8 @@ export default function TetrislyPage() {
               ]}
             >
               A library of components integrated with their figma counterparts.
-            </TetrislyElement>
-            <TetrislyElement
+            </Feature>
+            <Feature
               title="Figma Plugin"
               actions={[
                 {
@@ -83,10 +88,10 @@ export default function TetrislyPage() {
             >
               A plugin enabling designers to customize the tokens to their needs
               and to keep the integration with the React library
-            </TetrislyElement>
+            </Feature>
           </ul>
         </div>
-        <Card className="h-fit">
+        <Card className="col-span-3 mx-auto h-fit max-w-96 lg:col-span-1">
           <CardHeader>
             <CardTitle>What is a design system?</CardTitle>
           </CardHeader>
@@ -104,10 +109,10 @@ export default function TetrislyPage() {
           </CardFooter>
         </Card>
       </section>
-      <section>
-        <h2 className="text-center">Look what Tetrisly for React can do!</h2>
+      <section className="text-center sm:text-left">
+        <h2 className="lg:text-center">Look what Tetrisly for React can do!</h2>
         <iframe
-          className="my-8 h-[700px] w-full rounded"
+          className="my-8 hidden h-[700px] w-full rounded md:block"
           src="https://wleklinskimateusz.github.io/mini-demo-tet/"
         ></iframe>
         <div className="text-lg">
@@ -119,8 +124,8 @@ export default function TetrislyPage() {
           </Link>
         </div>
       </section>
-      <section>
-        <h2 className="text-center">What was my role?</h2>
+      <section className="text-center sm:text-left">
+        <h2 className="lg:text-center">What was my role?</h2>
         <p>
           During my time in a team I contributed in several ways. Among them:
         </p>
@@ -131,31 +136,3 @@ export default function TetrislyPage() {
     </div>
   );
 }
-
-const TetrislyElement = ({
-  title,
-  children,
-  actions,
-}: {
-  title: string;
-  children: ReactNode;
-  actions?: { label: string; href: string }[];
-}) => (
-  <li>
-    <Card className=" h-full border-none shadow-none">
-      <CardHeader className="px-0">
-        <CardTitle className="text-primary">{title}</CardTitle>
-      </CardHeader>
-      <CardContent className="px-0 text-sm">{children}</CardContent>
-      <CardFooter className=" px-0 ">
-        {actions?.map(({ label, href }) => (
-          <Link key={label} href={href}>
-            <Button size="sm" variant="secondary">
-              {label}
-            </Button>
-          </Link>
-        ))}
-      </CardFooter>
-    </Card>
-  </li>
-);

@@ -1,5 +1,7 @@
+import { LinkProps } from "next/link";
+
 export const navigationConfig = {
-  Home: "/",
-  Projects: "/projects",
+  Home: "/#hero",
+  Projects: "/#projects",
   Contact: "/contact",
-} as const satisfies Record<string, string>;
+} as const satisfies Record<string, LinkProps["href"]>;

@@ -12,10 +12,11 @@ const routeMap = {
   Contact: navigationConfig.Contact,
 } as const;
 
-const items = Object.entries(routeMap) as [keyof typeof routeMap, string][];
+type Entries<T> = [keyof T, T[keyof T]][];
+
+const items = Object.entries(routeMap) as Entries<typeof routeMap>;
 
 export const Nav = () => {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   useCloseOnResize(() => setOpen(false));
   return (
@@ -39,15 +40,16 @@ export const Nav = () => {
         )}
       >
         {items.map(([name, path]) => {
-          const active = isActive(pathname, path);
+          // const active = isActive(pathname, path);
           return (
             <Link
               key={name}
               href={path}
-              onClick={(e) => setOpen(false)}
+              shallow
+              onClick={() => setOpen(false)}
               className={cn(
                 "m-2 rounded px-2 py-1",
-                active && " underline underline-offset-4",
+                // active && " underline underline-offset-4",
               )}
             >
               {name}
