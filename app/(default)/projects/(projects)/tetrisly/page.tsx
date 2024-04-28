@@ -8,12 +8,10 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { Feature } from "../_components/Feature";
-import { ScreenWrapper } from "@/app/(default)/_components/ScreenWrapper";
 import { Hero } from "../_components/Hero";
 import { navigationConfig } from "@/config/navigationConfig";
 import { RoleElement } from "../_components/RoleElement";
-import { ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { BoldSkill, Skill } from "../_components/Skill";
 
 export default function TetrislyPage() {
   return (
@@ -236,19 +234,3 @@ export default function TetrislyPage() {
     </>
   );
 }
-
-const BoldSkill = ({ children }: { children: ReactNode }) => (
-  <span className="font-bold text-primary">{children}</span>
-);
-
-const Skill = ({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) => (
-  <li className={cn("max-w-sm border bg-white p-4 text-center", className)}>
-    {children}
-  </li>
-);
