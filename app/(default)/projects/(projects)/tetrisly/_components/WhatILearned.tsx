@@ -1,4 +1,5 @@
-import { BoldSkill, Skill } from "../../_components/Skill";
+import { BoldSkill } from "@/components/BoldSkill";
+import { Skill } from "../../_components/Skill";
 
 export const WhatILearned = () => (
   <section className="text-center sm:text-left">
