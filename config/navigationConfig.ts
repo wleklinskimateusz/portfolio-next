@@ -2,12 +2,13 @@ export const navigationConfig = {
   home: "/#hero",
   aboutMe: "/#about-me",
   projects: "/#projects",
-  contact: "/contact",
+  contact: "/#contact",
   project: {
     tetrisly: "/projects/tetrisly",
     budgetTracker: "/projects/budget-tracker",
     pokedex: "/projects/pokedex",
   },
+  mailTo: "mailto:wleklinskimateusz05@gmail.com",
 
   tetrisly: {
     logo: "/images/projects/tetrisly.svg",
