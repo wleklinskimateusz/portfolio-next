@@ -14,9 +14,9 @@ export const Footer = () => {
         <div className="mx-auto flex w-full max-w-4xl items-center justify-center gap-5 px-9 py-3  text-gray-500 md:justify-between">
           <p>© 2024 Mateusz Wlekliński</p>
           <div className="hidden gap-2 text-center text-sm text-gray-500 md:flex">
-            <Link href={navigationConfig.Home}>Home</Link>
-            <Link href={navigationConfig.Projects}>Projects</Link>
-            <Link href={navigationConfig.Contact}>Contact</Link>
+            <Link href={navigationConfig.home}>Home</Link>
+            <Link href={navigationConfig.projects}>Projects</Link>
+            <Link href={navigationConfig.contact}>Contact</Link>
           </div>
         </div>
       </div>

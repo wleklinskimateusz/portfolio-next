@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
-import React, { FC, useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { navigationConfig } from "@/config/navigationConfig";
 import { cn } from "@/lib/utils";
 
 const routeMap = {
-  Home: navigationConfig.Home,
-  Projects: navigationConfig.Projects,
-  Contact: navigationConfig.Contact,
+  Home: navigationConfig.home,
+  "About Me": navigationConfig.aboutMe,
+  Projects: navigationConfig.projects,
+  Contact: navigationConfig.contact,
 } as const;
 
 type Entries<T> = [keyof T, T[keyof T]][];

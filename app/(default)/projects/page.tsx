@@ -6,5 +6,10 @@ export const metadata = {
 };
 
 export default async function Projects() {
-  return <ProjectList />;
+  return (
+    <section className="m-auto h-full">
+      <h1 className="text-center">Projects I have worked on</h1>
+      <ProjectList />
+    </section>
+  );
 }
