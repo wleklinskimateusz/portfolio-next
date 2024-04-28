@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 
 export const UnderConstruction = ({ repo }: { repo: string }) => {
   return (
-    <section className="flex flex-col items-center gap-8">
-      <h2>The website is under construction</h2>
+    <section className="flex flex-col items-center gap-2">
+      <h2 className="py-0">The website is under construction</h2>
       <Image
         src="/images/under-construction.png"
         alt="the construction worker plans a building"

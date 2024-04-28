@@ -17,10 +17,10 @@ export default async function Home() {
       <HeroSection />
       {/* <PersonalFeatures />  */}
       <ScreenWrapper>
-        <section id="about-me" className="py-20">
+        {/* <section id="about-me" className="py-20">
           <h2 className="text-center">Who am I?</h2>
-          <ProjectList />
-        </section>
+         
+        </section> */}
         <section id="projects" className="py-20">
           <h2 className="text-center">Projects I have worked on</h2>
           <ProjectList />

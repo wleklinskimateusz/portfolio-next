@@ -20,6 +20,7 @@ export const ProjectList = () => (
       url="budget-tracker"
       image={navigationConfig.budgetTracker.logo}
       finished={null}
+      underConstruction
     >
       A budget tracker app that allows user to track their expenses and incomes.
     </ProjectCard>
@@ -29,6 +30,7 @@ export const ProjectList = () => (
       url="pokedex"
       image={navigationConfig.pokedex.logo}
       finished={new Date(2022, 3, 1)}
+      underConstruction
     >
       An app that fetches data from external api, stores with state managment
       library and allows user, to search, filter and display pokemons.

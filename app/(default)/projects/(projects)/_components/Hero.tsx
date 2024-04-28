@@ -10,7 +10,7 @@ export const Hero = ({ title, logo, className }: HeroProps) => {
   return (
     <section
       className={cn(
-        "flex flex-col items-center gap-8 rounded  px-4 py-8",
+        "flex flex-col items-center gap-4 rounded  px-4 py-8",
         className,
       )}
     >

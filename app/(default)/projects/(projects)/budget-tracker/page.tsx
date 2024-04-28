@@ -3,11 +3,16 @@ import { navigationConfig } from "@/config/navigationConfig";
 import Image from "next/image";
 import Link from "next/link";
 import { UnderConstruction } from "../_components/UnderConstruction";
+import { Hero } from "../_components/Hero";
 
 export default function BudgetTracketPage() {
   return (
     <>
-      <h1 className="text-center">Budget Tracket</h1>
+      <Hero
+        className="bg-blue-100"
+        title="Budget Tracker"
+        logo={navigationConfig.budgetTracker.logo}
+      />
       <UnderConstruction repo={navigationConfig.budgetTracker.repo} />
     </>
   );

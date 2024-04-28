@@ -2,14 +2,7 @@ import React, { FC, ReactNode } from "react";
 import Image from "next/image";
 
 import Link from "next/link";
-import { Project } from "@/data/projects";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,6 +15,7 @@ type ProjectCardProps = {
   className?: string;
   image?: string;
   finished: Date | null;
+  underConstruction?: boolean;
 };
 
 export const ProjectCard: FC<ProjectCardProps> = ({
@@ -32,11 +26,13 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   className,
   tags,
   finished,
+  underConstruction,
 }) => {
   return (
     <li className={cn("h-full max-w-md", className)}>
       <Link href={`/projects/${url}`}>
-        <Card className="flex h-full flex-col hover:shadow-lg">
+        <Card className="relative flex h-full flex-col hover:shadow-lg">
+          <UnderConstructionBadge underConstruction={underConstruction} />
           <CardHeader className="space-y-0">
             <div className="flex flex-row items-center justify-between">
               <CardTitle>{name}</CardTitle>
@@ -74,6 +70,17 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         </Card>
       </Link>
     </li>
+  );
+};
+
+const UnderConstructionBadge = ({
+  underConstruction,
+}: Pick<ProjectCardProps, "underConstruction">) => {
+  if (!underConstruction) return null;
+  return (
+    <Badge className="absolute bottom-2 right-2" variant="destructive">
+      details page under construction
+    </Badge>
   );
 };
 
