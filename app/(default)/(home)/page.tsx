@@ -4,12 +4,6 @@ import { ScreenWrapper } from "../_components/ScreenWrapper";
 import { AboutMe } from "./_components/AboutMe";
 import { ContactMe } from "../_components/ContactMe";
 
-export const metadata = {
-  title: "Mateusz Wlekliński",
-  description: "Mateusz Wlekliński's personal website",
-  keywords: "Mateusz Wlekliński, Wlekliński, Mateusz, portfolio, projects",
-};
-
 export default async function Home() {
   return (
     <div className="flex flex-col">

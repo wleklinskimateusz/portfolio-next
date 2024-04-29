@@ -20,15 +20,15 @@ const robotoFont = Roboto({
 });
 
 export const metadata = {
-  title: "Mateusz Wlekliński - Web Developer",
+  title: "Mateusz Wlekliński - TypeScript Developer",
   description:
-    "Frontend Developer with a passion for web development. Explore my projects and blog about coding and tech.",
+    "TypeScript Developer with a passion for web development. Explore my projects and blog about coding and tech.",
   keywords: [
     "react web development",
     "javascript for web development",
     "react website development",
-    "typescript react",
-    "react js typescript",
+    "typescript",
+    "react",
     "web development",
     "coding",
     "JavaScript",
@@ -43,7 +43,7 @@ export const metadata = {
   },
   robots: "index, follow",
   openGraph: {
-    title: "Mateusz Wlekliński - Web Developer",
+    title: "Mateusz Wlekliński - TypeScript Developer",
     description: personalConfig.description,
   },
 };
