@@ -7,7 +7,7 @@ export const AboutMe = () => {
   return (
     <section
       id="about-me"
-      className="grid grid-cols-1 place-items-center gap-x-8 gap-y-8 py-20 sm:gap-y-24 lg:grid-cols-2"
+      className="grid grid-cols-1 place-items-center gap-x-8 gap-y-8 py-5 sm:gap-y-24 md:py-20 lg:grid-cols-2"
     >
       <h2 className="text-center lg:col-span-2">Who am I?</h2>
       <div className="flex flex-col items-center justify-center gap-8">

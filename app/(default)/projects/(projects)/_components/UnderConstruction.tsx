@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export const UnderConstruction = ({ repo }: { repo: string }) => {
   return (
-    <section className="flex flex-col items-center gap-2">
+    <section className="-mt-12 flex flex-col items-center gap-2 text-center">
       <h2 className="py-0">The website is under construction</h2>
       <Image
         src="/images/under-construction.png"
@@ -17,7 +17,7 @@ export const UnderConstruction = ({ repo }: { repo: string }) => {
         In the meantime feel free to check out the repo on Github or my Tetrisly
         Page
       </p>
-      <div className="flex gap-8">
+      <div className="flex gap-8 p-8">
         <Link href={repo}>
           <Button>Github Repo</Button>
         </Link>

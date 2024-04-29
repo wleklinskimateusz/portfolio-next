@@ -7,7 +7,7 @@ export default function ProjectLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ScreenWrapper className="gap-32 2xl:max-w-screen-lg">
+    <ScreenWrapper className="gap-24 2xl:max-w-screen-lg">
       {children}
       <ContactMe />
     </ScreenWrapper>
