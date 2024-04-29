@@ -1,13 +1,17 @@
+import { personalConfig } from "./personalConfig";
+
 export const navigationConfig = {
   home: "/#hero",
   aboutMe: "/#about-me",
   projects: "/#projects",
-  contact: "/contact",
+  contact: "/#contact",
+  resume: "/resume.pdf",
   project: {
     tetrisly: "/projects/tetrisly",
     budgetTracker: "/projects/budget-tracker",
     pokedex: "/projects/pokedex",
   },
+  mailTo: `mailto:${personalConfig.email}`,
 
   tetrisly: {
     logo: "/images/projects/tetrisly.svg",
@@ -38,10 +42,10 @@ export const navigationConfig = {
   },
   budgetTracker: {
     logo: "https://budget-livid.vercel.app/logo.svg",
-    repo: "", //TODO: add repo link
+    repo: "https://github.com/wleklinskimateusz/budget",
   },
   pokedex: {
     logo: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    repo: "", // TODO: add repo link
+    repo: "https://github.com/wleklinskimateusz/pokedex",
   },
 } as const;

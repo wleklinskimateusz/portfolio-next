@@ -2,7 +2,7 @@ import { navigationConfig } from "@/config/navigationConfig";
 import { ProjectCard } from "./ProjectCard";
 
 export const ProjectList = () => (
-  <ul className="mx-auto my-8 grid w-fit grid-cols-1 content-center justify-items-center gap-8 p-4 lg:grid-cols-2  2xl:grid-cols-3">
+  <ul className="mx-auto my-8 grid w-fit grid-cols-1 content-center justify-items-center gap-8 py-4 lg:grid-cols-2  2xl:grid-cols-3">
     <ProjectCard
       name="Tetrisly"
       tags={["Comercial", "VirtusLab", "Design System"]}
