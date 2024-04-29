@@ -43,7 +43,10 @@ export const ContactMe = () => {
                 </Link>
               </li>
               <li className="sm:col-span-2">
-                <Link href={`mailto:${personalConfig.email}`}>
+                <Link
+                  href={navigationConfig.resume}
+                  download="MateuszWleklinski.pdf"
+                >
                   <Button variant="link" className="flex w-full gap-2">
                     Download my Resume
                   </Button>

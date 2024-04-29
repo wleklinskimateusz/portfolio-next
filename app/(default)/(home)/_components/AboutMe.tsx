@@ -35,7 +35,7 @@ export const AboutMe = () => {
         </h3>
         <p>
           I am a <BoldSkill>TypeScript Developer</BoldSkill> with two years of
-          experience in creating, testing and maintaining web applications and
+          experience creating, testing and maintaining web applications and
           tools.
         </p>
         <p>

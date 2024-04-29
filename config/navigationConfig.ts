@@ -3,6 +3,7 @@ export const navigationConfig = {
   aboutMe: "/#about-me",
   projects: "/#projects",
   contact: "/#contact",
+  resume: "/resume.pdf",
   project: {
     tetrisly: "/projects/tetrisly",
     budgetTracker: "/projects/budget-tracker",
