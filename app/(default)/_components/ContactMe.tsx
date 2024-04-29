@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { socials as allSocials } from "@/data/socials";
 import { Social } from "@/data/socials";
 import { FaEnvelope } from "react-icons/fa6";
-import { personalConfig } from "@/config/personalConfig";
+
 const socialFollow = [
   "Threads",
   "Twitter",
@@ -36,7 +36,7 @@ export const ContactMe = () => {
                 </li>
               ))}
               <li>
-                <Link href={`mailto:${personalConfig.email}`}>
+                <Link href={navigationConfig.mailTo}>
                   <Button variant="outline" className="flex w-full gap-2">
                     <FaEnvelope /> Write to me!
                   </Button>
