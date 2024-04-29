@@ -37,8 +37,12 @@ export const ProjectCard: FC<ProjectCardProps> = ({
             <div className="flex flex-row items-center justify-between">
               <CardTitle>{name}</CardTitle>
               <div className="flex gap-1 ">
-                {tags?.map((tag) => (
-                  <Badge key={tag} variant="secondary">
+                {tags?.map((tag, idx) => (
+                  <Badge
+                    key={tag}
+                    variant="secondary"
+                    className={cn({ "max-sm:hidden": idx > 1 })}
+                  >
                     {tag}
                   </Badge>
                 ))}
