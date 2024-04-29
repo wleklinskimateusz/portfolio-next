@@ -91,7 +91,7 @@ const WhatIsDesignSystem = ({ className }: { className?: string }) => (
       If you don&apos;t know what a design system is, check out following
       resources
     </CardContent>
-    <CardFooter className="flex-col items-start px-2">
+    <CardFooter className="flex-col items-center px-2 md:items-start">
       <Link href="https://www.figma.com/blog/design-systems-101-what-is-a-design-system/">
         <Button variant="link">Design Systems 101: Figma</Button>
       </Link>

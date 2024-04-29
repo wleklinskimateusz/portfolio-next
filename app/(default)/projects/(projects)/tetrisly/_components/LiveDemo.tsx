@@ -3,10 +3,10 @@ import { navigationConfig } from "@/config/navigationConfig";
 import Link from "next/link";
 
 export const LiveDemo = () => (
-  <section className="text-center sm:text-left">
+  <section className="hidden text-left md:block">
     <h2 className="lg:text-center">Something to play with</h2>
     <iframe
-      className="my-8 hidden h-[700px] w-full md:block"
+      className="my-8 h-[700px] w-full"
       src={navigationConfig.tetrisly.miniDemo}
     ></iframe>
     <div className="text-lg">

@@ -17,7 +17,7 @@ const socials = allSocials.filter((social) =>
 );
 export const ContactMe = () => {
   return (
-    <ScreenWrapper className="my-32">
+    <ScreenWrapper className="md:my-32">
       <section
         id="contact"
         className="flex flex-col gap-4 rounded bg-slate-100 p-8"
