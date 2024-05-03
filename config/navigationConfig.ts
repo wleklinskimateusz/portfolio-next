@@ -4,6 +4,7 @@ export const navigationConfig = {
   home: "/#hero",
   aboutMe: "/#about-me",
   projects: "/#projects",
+  blog: "/#blog",
   contact: "/#contact",
   resume: "/resume.pdf",
   project: {

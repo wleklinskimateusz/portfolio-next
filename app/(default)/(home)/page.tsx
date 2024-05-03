@@ -3,6 +3,7 @@ import { ProjectList } from "../projects/_components/ProjectList";
 import { ScreenWrapper } from "../_components/ScreenWrapper";
 import { AboutMe } from "./_components/AboutMe";
 import { ContactMe } from "../_components/ContactMe";
+import { Blogs } from "./_components/Blogs";
 
 export default async function Home() {
   return (
@@ -14,6 +15,7 @@ export default async function Home() {
           <h2 className="text-center">Projects I have worked on</h2>
           <ProjectList />
         </section>
+        <Blogs />
         <ContactMe />
       </ScreenWrapper>
     </div>
