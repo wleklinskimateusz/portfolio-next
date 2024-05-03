@@ -9,6 +9,7 @@ const routeMap = {
   Home: navigationConfig.home,
   "About Me": navigationConfig.aboutMe,
   Projects: navigationConfig.projects,
+  Blog: navigationConfig.blog,
   Contact: navigationConfig.contact,
 } as const;
 
