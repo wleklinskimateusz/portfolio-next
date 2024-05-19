@@ -17,6 +17,16 @@ export const Blogs = () => {
       <h2 className="text-center">My Articles</h2>
       <ul className="grid grid-cols-1 gap-16 md:grid-cols-2">
         <BlogCard
+          title="Make your TypeScript DRY with Mapped Types"
+          date={new Date(2024, 4, 19)}
+          href="https://medium.com/p/d924fb8d8822"
+          tags={["TypeScript", "Type Transformations", "DRY", "Mapped Types"]}
+          img={{
+            alt: "a desk with computer and coffee",
+            src: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*PNLi9uYc1AqbrRt_y4MQ7g.png",
+          }}
+        />
+        <BlogCard
           title="What TotalTypescript Pro Workshop taught me - Type Transformations"
           date={new Date(2024, 4, 2)}
           href="https://blog.wleklinski.eu/what-totaltypescript-pro-workshop-taught-me-part-1-type-transformation-d99049a6f586"
